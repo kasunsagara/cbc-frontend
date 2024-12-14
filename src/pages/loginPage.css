@@ -6,7 +6,7 @@ body {
     background-color: #f4f4f9;
 }
 
-.background {
+.login-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -44,16 +44,6 @@ a:hover {
 h1 {
     font-size: 36px;
     color: #333;
-}
-
-button.val {
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-}
-
-button-panel {
-    margin-top: 20px;
 }
 
 input[type="text"], input[type="password"] {
