@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import ProductCard from './components/productCard'
 import UserData from './components/userData'
-
+import Testing from './components/testing'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +21,8 @@ function App() {
     <ProductCard name="Ipad" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" price="$299" />
 
     <UserData />
+
+    <Testing />
 
     </>
   )
