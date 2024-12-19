@@ -3,6 +3,7 @@ import { GoGraph } from "react-icons/go";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { FiPackage } from "react-icons/fi";
 import { Routes, Route } from "react-router-dom";
+import AdminProductsPage from "./admin/adminProductsPage";
 
 export default function AdminHomePage() {
     return (
@@ -47,7 +48,7 @@ export default function AdminHomePage() {
             <div className="w-[80%] h-screen bg-red-600">
                 <Routes path="/*">
                     <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-                    <Route path="/products" element={<h1>Products</h1>} />
+                    <Route path="/products" element={<AdminProductsPage/>} />
                     <Route path="/orders" element={<h1>Orders</h1>} />
                     <Route path="/customers" element={<h1>Customers</h1>} />
                     <Route path="/*" element={<h1>404 not found the admin page</h1>} />
