@@ -48,12 +48,12 @@ export default function AdminHomePage() {
             </div>
 
             {/* Main Content */}
-            <div className="w-[80%] h-screen bg-white p-6 overflow-auto">
-                <div className="bg-blue-100 p-4 rounded-lg shadow-md mb-6">
+            <div className="w-[80%] h-screen bg-blue-400 p-6 overflow-auto">
+                <div className="bg-blue-300 p-4 rounded-lg shadow-md mb-6">
                     <h1 className="text-3xl font-semibold text-gray-800">Welcome to the Admin Panel</h1>
                     <p className="text-gray-600 mt-2">Manage your store efficiently and effectively!</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg shadow-inner">
+                <div className="bg-blue-300 p-4 rounded-lg shadow-inner">
                     <Routes path="/*">
                         <Route path="/dashboard" element={<h1 className="text-xl font-medium">Dashboard</h1>} />
                         <Route path="/products" element={<AdminProductsPage />} />
