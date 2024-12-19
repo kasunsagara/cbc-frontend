@@ -6,6 +6,7 @@ import Testing from './components/testing'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/homePage'
 import LoginPage from './pages/loginPage'
+import SignupPage from './pages/signupPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +18,7 @@ function App() {
     <Routes path="/*">
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/*" element={<h1>404 error</h1>} />
+        <Route path="/signup" element={<SignupPage />} />
     </Routes>
     </BrowserRouter>
 
