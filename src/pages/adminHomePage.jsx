@@ -7,15 +7,15 @@ import AdminProductsPage from "./admin/adminProductsPage";
 
 export default function AdminHomePage() {
     return (
-        <div className="bg-gray-100 w-full h-screen flex">
+        <div className="bg-gray-50 w-full h-screen flex">
 
             {/* Sidebar */}
-            <div className="w-[20%] h-screen bg-blue-600 flex flex-col items-center py-8 space-y-6 shadow-lg">
+            <div className="w-[20%] h-screen bg-indigo-700 flex flex-col items-center py-8 space-y-6 shadow-lg">
 
                 <h1 className="text-white text-2xl font-bold">Admin Panel</h1>
 
                 <Link 
-                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-blue-700 rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/dashboard"
                 >
                     <GoGraph size={20} />
@@ -23,7 +23,7 @@ export default function AdminHomePage() {
                 </Link>
 
                 <Link 
-                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-blue-700 rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/products"
                 >
                     <FiPackage size={20} />
@@ -31,7 +31,7 @@ export default function AdminHomePage() {
                 </Link>
 
                 <Link 
-                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-blue-700 rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/orders"
                 >
                     <AiOutlineShoppingCart size={20} />
@@ -39,7 +39,7 @@ export default function AdminHomePage() {
                 </Link>
 
                 <Link 
-                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-blue-700 rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/customers"
                 >
                     <AiOutlineUser size={20} />
@@ -48,12 +48,12 @@ export default function AdminHomePage() {
             </div>
 
             {/* Main Content */}
-            <div className="w-[80%] h-screen bg-blue-400 p-6 overflow-auto">
-                <div className="bg-blue-300 p-4 rounded-lg shadow-md mb-6">
+            <div className="w-[80%] h-screen bg-gray-200 p-6 overflow-auto">
+                <div className="bg-white p-4 rounded-lg shadow-md mb-6">
                     <h1 className="text-3xl font-semibold text-gray-800">Welcome to the Admin Panel</h1>
                     <p className="text-gray-600 mt-2">Manage your store efficiently and effectively!</p>
                 </div>
-                <div className="bg-blue-300 p-4 rounded-lg shadow-inner">
+                <div className="bg-white p-4 rounded-lg shadow-inner">
                     <Routes path="/*">
                         <Route path="/dashboard" element={<h1 className="text-xl font-medium">Dashboard</h1>} />
                         <Route path="/products" element={<AdminProductsPage />} />
