@@ -14,7 +14,7 @@ export default function LoginPage() {
              password: password}).then((res) => {
                  
                 if(res.data.user == null) {
-                    toast.error("res.data.message")
+                    toast.error(res.data.message)
                     return
                 }
 
