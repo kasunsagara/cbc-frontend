@@ -34,7 +34,7 @@ export default function SignupPage() {
 
   function signup() {
     axios
-      .post('http://localhost:5000/api/users/signup', {
+      .post('http://localhost:5000/api/users/', {
         ...formData,
         profilePicture:
           formData.profilePicture ||
