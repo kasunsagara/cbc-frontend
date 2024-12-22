@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="">
     <BrowserRouter>
-    <Toaster />
+    <Toaster position="top-right"/>
     <Routes path="/*">
         <Route path="/" element={<HomePage />} />
 
