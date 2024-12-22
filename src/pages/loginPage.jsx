@@ -1,11 +1,18 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const passwordInputRef = useRef(null);
+
+  function handleKeyDown(event, nextInputRef) {
+    if (event.key === 'Enter') {
+      nextInputRef?.current?.focus();
+    }
+  }
 
   function login() {
     axios
@@ -42,9 +49,10 @@ export default function LoginPage() {
             </label>
             <input
               id="email"
-              defaultValue={email}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
+              onKeyDown={(e) => handleKeyDown(e, passwordInputRef)}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -55,8 +63,12 @@ export default function LoginPage() {
             <input
               id="password"
               type="password"
-              defaultValue={password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') login();
+              }}
+              ref={passwordInputRef}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>

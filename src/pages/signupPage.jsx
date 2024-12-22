@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,12 @@ export default function SignupPage() {
     profilePicture: '',
   });
 
+  // References for each input field
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const passwordRef = useRef(null);
+  const profilePictureRef = useRef(null);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -20,11 +26,19 @@ export default function SignupPage() {
     }));
   }
 
+  function handleKeyDown(event, nextInputRef) {
+    if (event.key === 'Enter') {
+      nextInputRef?.current?.focus();
+    }
+  }
+
   function signup() {
     axios
       .post('http://localhost:5000/api/users/signup', {
         ...formData,
-        profilePicture: formData.profilePicture || 'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
+        profilePicture:
+          formData.profilePicture ||
+          'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
       })
       .then((res) => {
         if (res.data.error) {
@@ -64,6 +78,7 @@ export default function SignupPage() {
               type="email"
               value={formData.email}
               onChange={handleChange}
+              onKeyDown={(e) => handleKeyDown(e, firstNameRef)}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
@@ -78,6 +93,8 @@ export default function SignupPage() {
               type="text"
               value={formData.firstName}
               onChange={handleChange}
+              onKeyDown={(e) => handleKeyDown(e, lastNameRef)}
+              ref={firstNameRef}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
@@ -92,6 +109,8 @@ export default function SignupPage() {
               type="text"
               value={formData.lastName}
               onChange={handleChange}
+              onKeyDown={(e) => handleKeyDown(e, passwordRef)}
+              ref={lastNameRef}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
@@ -106,6 +125,8 @@ export default function SignupPage() {
               type="password"
               value={formData.password}
               onChange={handleChange}
+              onKeyDown={(e) => handleKeyDown(e, profilePictureRef)}
+              ref={passwordRef}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
@@ -120,6 +141,10 @@ export default function SignupPage() {
               type="text"
               value={formData.profilePicture}
               onChange={handleChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') signup();
+              }}
+              ref={profilePictureRef}
               className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Optional"
             />
