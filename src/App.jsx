@@ -8,14 +8,15 @@ import HomePage from './pages/homePage'
 import LoginPage from './pages/loginPage'
 import SignupPage from './pages/signupPage'
 import AdminHomePage from './pages/adminHomePage'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-
+    <div className="">
     <BrowserRouter>
+    <Toaster />
     <Routes path="/*">
         <Route path="/" element={<HomePage />} />
 
@@ -28,8 +29,7 @@ function App() {
         <Route path="/*" element={<HomePage />} />
     </Routes>
     </BrowserRouter>
-
-    </>
+    </div>
   )
 }
 
