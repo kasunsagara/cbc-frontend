@@ -7,7 +7,7 @@ import AdminProductsPage from "./admin/adminProductsPage";
 
 export default function AdminHomePage() {
     return (
-        <div className="bg-gray-50 w-full h-screen flex">
+        <div className="w-full h-screen flex">
 
             {/* Sidebar */}
             <div className="w-[20%] h-screen bg-indigo-700 flex flex-col items-center py-8 space-y-6 shadow-lg">
@@ -51,7 +51,7 @@ export default function AdminHomePage() {
             <div className="w-[80%] h-screen bg-gray-200 p-6 overflow-auto">
                 <div className="bg-white p-4 rounded-lg shadow-md mb-6">
                     <h1 className="text-3xl font-semibold text-gray-800">Welcome to the Admin Panel</h1>
-                    <p className="text-gray-600 mt-2">Manage your store efficiently and effectively!</p>
+                    <p className="text-gray-600 mt-2">Manage your store efficiently and effectively</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-inner">
                     <Routes path="/*">

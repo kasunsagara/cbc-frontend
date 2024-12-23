@@ -41,7 +41,7 @@ export default function HomePage() {
             </div>
 
             {/* Content Section */}
-            <div className="w-full flex-1 flex items-center justify-center">
+            <div className="w-full h-[90%] flex-1 flex items-center justify-center">
                 <Routes path="/*">
                     <Route path="/" element={<h1 className="text-4xl font-bold">Welcome to the Home Page</h1>} />
                     <Route path="/contacts" element={<h1 className="text-4xl font-bold">Get in Touch with Us</h1>} />
