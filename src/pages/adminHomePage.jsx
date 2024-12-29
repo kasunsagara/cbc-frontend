@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-import { GoGraph } from "react-icons/go";
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import { FiPackage } from "react-icons/fi";
-import { Routes, Route } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import { BsGraphUp, BsBoxSeam, BsCart4, BsPeopleFill } from "react-icons/bs";
 import AdminProductsPage from "./admin/adminProductsPage";
+import AddProductForm from "./admin/addProductForm";
 
 export default function AdminHomePage() {
     return (
@@ -18,7 +16,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/dashboard"
                 >
-                    <GoGraph size={20} />
+                    <BsGraphUp size={20} />
                     <span className="text-lg">Dashboard</span>
                 </Link>
 
@@ -26,7 +24,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/products"
                 >
-                    <FiPackage size={20} />
+                    <BsBoxSeam size={20} />
                     <span className="text-lg">Products</span>
                 </Link>
 
@@ -34,7 +32,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/orders"
                 >
-                    <AiOutlineShoppingCart size={20} />
+                    <BsCart4 size={20} />
                     <span className="text-lg">Orders</span>
                 </Link>
 
@@ -42,7 +40,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-indigo-800 rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/customers"
                 >
-                    <AiOutlineUser size={20} />
+                    <BsPeopleFill size={20} />
                     <span className="text-lg">Customers</span>
                 </Link>
             </div>
@@ -57,6 +55,7 @@ export default function AdminHomePage() {
                     <Routes path="/*">
                         <Route path="/dashboard" element={<h1 className="text-xl font-medium">Dashboard</h1>} />
                         <Route path="/products" element={<AdminProductsPage />} />
+                        <Route path="/products/addProduct" element={<AddProductForm/>} />
                         <Route path="/orders" element={<h1 className="text-xl font-medium">Orders</h1>} />
                         <Route path="/customers" element={<h1 className="text-xl font-medium">Customers</h1>} />
                         <Route path="/*" element={<h1 className="text-xl font-medium text-red-500">404 - Page Not Found</h1>} />
