@@ -146,5 +146,5 @@ export default function AddProductForm() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
