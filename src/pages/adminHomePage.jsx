@@ -47,15 +47,21 @@ export default function AdminHomePage() {
 
             {/* Main Content */}
             <div className="w-[80%] h-screen bg-gray-200 p-6 overflow-auto">
-                <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-                    <h1 className="text-3xl font-semibold text-gray-800">Welcome to the Admin Panel</h1>
-                    <p className="text-gray-600 mt-2">Manage your store efficiently and effectively</p>
-                </div>
                 <div className="bg-white p-4 rounded-lg shadow-inner">
-                    <Routes path="/*">
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <div className="w-full h-full flex justify-center items-center">
+                                    <h1 className="text-5xl font-extrabold text-blue-700">
+                                        Welcome to the Admin Page!
+                                    </h1>
+                                </div>
+                            }
+                        />
                         <Route path="/dashboard" element={<h1 className="text-xl font-medium">Dashboard</h1>} />
                         <Route path="/products" element={<AdminProductsPage />} />
-                        <Route path="/products/addProduct" element={<AddProductForm/>} />
+                        <Route path="/products/addProduct" element={<AddProductForm />} />
                         <Route path="/orders" element={<h1 className="text-xl font-medium">Orders</h1>} />
                         <Route path="/customers" element={<h1 className="text-xl font-medium">Customers</h1>} />
                         <Route path="/*" element={<h1 className="text-xl font-medium text-red-500">404 - Page Not Found</h1>} />
