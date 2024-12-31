@@ -18,11 +18,11 @@ export default function uploadMediaToSupabase(file) {
 
     fileName = timestamp +file.name+ "." + extension;
 
-    supabase.storage.from("Images").upload(fileName, file, {
+    supabase.storage.from("images").upload(fileName, file, {
       cacheControl: "3600",
       upsert: false,
     }).then(()=>{
-      const publicUrl = supabase.storage.from("Images").getPublicUrl(fileName).data.publicUrl;
+      const publicUrl = supabase.storage.from("images").getPublicUrl(fileName).data.publicUrl;
       resolve(publicUrl);
     }).catch((err)=>{
       reject(err);
