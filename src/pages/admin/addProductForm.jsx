@@ -62,7 +62,7 @@ export default function AddProductForm() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center">
             <div className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6">
                 <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Add Product Form</h1>
                 <div className="space-y-4">

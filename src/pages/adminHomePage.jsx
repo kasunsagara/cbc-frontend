@@ -46,15 +46,15 @@ export default function AdminHomePage() {
             </div>
 
             {/* Main Content */}
-            <div className="w-[80%] h-screen bg-gray-200 p-6 overflow-auto">
-                <div className="bg-white p-4 rounded-lg shadow-inner">
+            <div className="w-[80%] h-screen bg-white p-6 overflow-auto">
+                <div className="bg-gray-100 p-4 rounded-lg shadow-inner">
                     <Routes>
                         <Route
                             path="/"
                             element={
                                 <div className="w-full h-full flex justify-center items-center">
                                     <h1 className="text-5xl font-extrabold text-blue-700">
-                                        Welcome to the Admin Page!
+                                        Welcome to the Admin Page
                                     </h1>
                                 </div>
                             }

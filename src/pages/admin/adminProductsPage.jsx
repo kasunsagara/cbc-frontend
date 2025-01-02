@@ -20,7 +20,7 @@ export default function AdminProductsPage() {
   }, [productsLoaded]);
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 min-h-screen">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Admin Products Page</h1>
         <Link
@@ -50,7 +50,7 @@ export default function AdminProductsPage() {
                 <tr
                   key={index}
                   className={`hover:bg-gray-100 transition-all ${
-                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    index % 2 === 0 ? "bg-white" : "bg-white"
                   }`}
                 >
                   <td className="px-6 py-4">{product.productId}</td>
