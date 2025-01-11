@@ -33,7 +33,7 @@ export default function SignupPage() {
   }
 
   function signup() {
-    axios.post('http://localhost:5000/api/users/', {
+    axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users",{
         ...formData,
         profilePicture:
           formData.profilePicture ||
