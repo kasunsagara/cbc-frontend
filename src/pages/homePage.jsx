@@ -1,5 +1,5 @@
-import { Routes } from 'react-router-dom'
-import Header from './components/header'
+import { Routes } from 'react-router-dom';
+import Header from '../components/header';
 
 export default function HomePage() {
     return (
@@ -7,7 +7,18 @@ export default function HomePage() {
             <Header />
             <Routes path="/*">
 
-            </Routes>
-        </div>    
-    )
+            </Routes>    
+        </div>
+    );
 }
+
+
+
+
+
+
+
+
+
+
+
