@@ -11,31 +11,35 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     if (!productsLoaded) {
-      axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then((res) => {
-        setProducts(res.data);
-        console.log(res.data);
-        setProductsLoaded(true);
-      })
+      axios
+        .get(import.meta.env.VITE_BACKEND_URL + "/api/products")
+        .then((res) => {
+          setProducts(res.data);
+          console.log(res.data);
+          setProductsLoaded(true);
+        });
     }
   }, [productsLoaded]);
 
   return (
-    <div className="p-8 min-h-screen">
+    <div className="p-8 min-h-screen bg-primary">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Admin Products Page</h1>
+        <h1 className="text-3xl font-bold text-secondary">
+          Admin Products Page
+        </h1>
         <Link
           to={"/admin/products/addProduct"}
-          className="flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-all"
+          className="flex items-center justify-center w-12 h-12 bg-secondary text-white rounded-full shadow-md hover:bg-accent transition-all"
         >
           <FaPlus />
         </Link>
       </div>
 
       {productsLoaded ? (
-        <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+        <div className="overflow-x-auto bg-white shadow-md rounded-lg border border-accent">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-blue-500 text-white">
+              <tr className="bg-secondary text-white">
                 <th className="px-6 py-3">Product ID</th>
                 <th className="px-6 py-3">Product Name</th>
                 <th className="px-6 py-3">Price</th>
@@ -50,7 +54,7 @@ export default function AdminProductsPage() {
                 <tr
                   key={index}
                   className={`hover:bg-gray-100 transition-all ${
-                    index % 2 === 0 ? "bg-white" : "bg-white"
+                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
                   }`}
                 >
                   <td className="px-6 py-4">{product.productId}</td>
@@ -59,14 +63,18 @@ export default function AdminProductsPage() {
                   <td className="px-6 py-4">${product.lastPrice}</td>
                   <td className="px-6 py-4">{product.stock}</td>
                   <td className="px-6 py-4">{product.description}</td>
-                  <td className="px-6 py-4 flex gap-2">
+                  <td className="px-6 py-4 flex gap-4">
                     <button
                       title="Delete"
                       className="text-red-500 hover:text-red-700"
                       onClick={() => {
                         const token = localStorage.getItem("token");
 
-                        axios.delete(import.meta.env.VITE_BACKEND_URL+`/api/products/${product.productId}`, {
+                        axios
+                          .delete(
+                            import.meta.env.VITE_BACKEND_URL +
+                              `/api/products/${product.productId}`,
+                            {
                               headers: {
                                 Authorization: `Bearer ${token}`,
                               },
@@ -83,7 +91,7 @@ export default function AdminProductsPage() {
                     </button>
                     <button
                       title="Edit"
-                      className="text-blue-500 hover:text-blue-700"
+                      className="text-secondary hover:text-accent"
                     >
                       <FaPencil />
                     </button>
@@ -95,7 +103,7 @@ export default function AdminProductsPage() {
         </div>
       ) : (
         <div className="w-full h-64 flex justify-center items-center">
-          <div className="w-12 h-12 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-primary border-t-secondary rounded-full animate-spin"></div>
         </div>
       )}
     </div>

@@ -49,7 +49,7 @@ export default function AddProductForm() {
 
         const token = localStorage.getItem("token");
         try {
-            await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/products",product, {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/products", product, {
                 headers: {
                     Authorization: "Bearer " + token,
                 },
@@ -62,9 +62,11 @@ export default function AddProductForm() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Add Product Form</h1>
+        <div className="min-h-screen flex items-center justify-center bg-primary">
+            <div className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 border border-accent">
+                <h1 className="text-2xl font-bold text-center text-secondary mb-6">
+                    Add Product Form
+                </h1>
                 <div className="space-y-4">
                     <div className="flex flex-col">
                         <label className="block text-gray-600 mb-2">Product ID</label>
@@ -74,7 +76,7 @@ export default function AddProductForm() {
                             onChange={(e) => setProductId(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 0)}
                             ref={(el) => (inputRefs.current[0] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Product ID"
                         />
                     </div>
@@ -86,7 +88,7 @@ export default function AddProductForm() {
                             onChange={(e) => setProductName(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 1)}
                             ref={(el) => (inputRefs.current[1] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Product Name"
                         />
                     </div>
@@ -98,7 +100,7 @@ export default function AddProductForm() {
                             onChange={(e) => setAlternativeNames(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 2)}
                             ref={(el) => (inputRefs.current[2] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Comma-separated names"
                         />
                     </div>
@@ -106,12 +108,13 @@ export default function AddProductForm() {
                         <label className="block text-gray-600 mb-2">Image URLs</label>
                         <input
                             type="file"
-                            onChange={(e) => {setImageFiles(e.target.files)}}
+                            onChange={(e) => {
+                                setImageFiles(e.target.files);
+                            }}
                             multiple
                             onKeyDown={(e) => handleKeyDown(e, 3)}
                             ref={(el) => (inputRefs.current[3] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Comma-separated URLs"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -122,7 +125,7 @@ export default function AddProductForm() {
                             onChange={(e) => setPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 4)}
                             ref={(el) => (inputRefs.current[4] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Price"
                         />
                     </div>
@@ -134,7 +137,7 @@ export default function AddProductForm() {
                             onChange={(e) => setLastPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 5)}
                             ref={(el) => (inputRefs.current[5] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Last Price"
                         />
                     </div>
@@ -146,7 +149,7 @@ export default function AddProductForm() {
                             onChange={(e) => setStock(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 6)}
                             ref={(el) => (inputRefs.current[6] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Stock"
                         />
                     </div>
@@ -157,14 +160,14 @@ export default function AddProductForm() {
                             onChange={(e) => setDescription(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 7)}
                             ref={(el) => (inputRefs.current[7] = el)}
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-gray-50"
                             placeholder="Enter Description"
                         ></textarea>
                     </div>
                     <button
                         type="button"
                         onClick={handleSubmit}
-                        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full bg-secondary text-white py-2 px-4 rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent"
                     >
                         Add Product
                     </button>
