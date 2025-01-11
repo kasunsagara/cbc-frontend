@@ -33,8 +33,7 @@ export default function SignupPage() {
   }
 
   function signup() {
-    axios
-      .post('http://localhost:5000/api/users/', {
+    axios.post('http://localhost:5000/api/users/', {
         ...formData,
         profilePicture:
           formData.profilePicture ||
@@ -59,7 +58,7 @@ export default function SignupPage() {
       <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
           <img
-            src="/logo.png"
+            src="/logo2.png"
             alt="Logo"
             className="rounded-full w-[80px] shadow-md"
           />

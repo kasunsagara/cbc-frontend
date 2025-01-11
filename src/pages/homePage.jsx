@@ -10,7 +10,7 @@ export default function HomePage() {
             {/* Header Section */}
             <div className="w-full h-[10%] flex items-center justify-between px-8 py-4 bg-white bg-opacity-20 shadow-lg backdrop-blur-md">
                 <div className="text-lg font-bold">
-                <img src="/cbc.jpg" alt="Logo" className="rounded-full w-[50px] h-[50px] shadow-md object-cover" />
+                <img src="/logo1.png" alt="Logo" className="rounded-full w-[50px] h-[50px] shadow-md object-cover" />
                 </div>
 
                 <div className="flex space-x-8 ml-auto">

@@ -15,8 +15,7 @@ export default function LoginPage() {
   }
 
   function login() {
-    axios
-      .post('http://localhost:5000/api/users/login', {
+    axios.post('http://localhost:5000/api/users/login', {
         email: email,
         password: password,
       })
@@ -39,7 +38,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600">
       <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
-          <img src="/logo.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
+          <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
         <h1 className="text-2xl font-bold text-blue-700 text-center mb-6">Welcome Back</h1>
         <form className="space-y-4">
