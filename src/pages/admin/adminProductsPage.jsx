@@ -54,7 +54,7 @@ export default function AdminProductsPage() {
                 <tr
                   key={index}
                   className={`hover:bg-gray-100 transition-all ${
-                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    index % 2 === 0 ? "bg-white" : "bg-white"
                   }`}
                 >
                   <td className="px-6 py-4">{product.productId}</td>
