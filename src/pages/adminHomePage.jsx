@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { BsGraphUp, BsBoxSeam, BsCart4, BsPeopleFill } from "react-icons/bs";
 import AdminProductsPage from "./admin/adminProductsPage";
 import AddProductForm from "./admin/addProductForm";
+import EditProductForm from "./admin/editProductForm";
 
 export default function AdminHomePage() {
     return (
@@ -61,6 +62,7 @@ export default function AdminHomePage() {
                         <Route path="/dashboard" element={<h1 className="text-xl font-medium text-primary">Dashboard</h1>} />
                         <Route path="/products" element={<AdminProductsPage />} />
                         <Route path="/products/addProduct" element={<AddProductForm />} />
+                        <Route path="/products/editProduct" element={<EditProductForm/>} />
                         <Route path="/orders" element={<h1 className="text-xl font-medium text-primary">Orders</h1>} />
                         <Route path="/customers" element={<h1 className="text-xl font-medium text-primary">Customers</h1>} />
                         <Route path="/*" element={<h1 className="text-xl font-medium text-red-500">404 - Page Not Found</h1>} />
