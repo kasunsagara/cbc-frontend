@@ -11,22 +11,18 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     if (!productsLoaded) {
-      axios
-        .get(import.meta.env.VITE_BACKEND_URL + "/api/products")
-        .then((res) => {
-          setProducts(res.data);
-          console.log(res.data);
-          setProductsLoaded(true);
-        });
+      axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products").then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
+        setProductsLoaded(true);
+      })
     }
   }, [productsLoaded]);
 
   return (
-    <div className="p-8 min-h-screen bg-primary">
+    <div className="p-8 min-h-screen bg-yellow-200">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-secondary">
-          Admin Products Page
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-800">Admin Products Page</h1>
         <Link
           to={"/admin/products/addProduct"}
           className="flex items-center justify-center w-12 h-12 bg-secondary text-white rounded-full shadow-md hover:bg-accent transition-all"
@@ -36,7 +32,7 @@ export default function AdminProductsPage() {
       </div>
 
       {productsLoaded ? (
-        <div className="overflow-x-auto bg-white shadow-md rounded-lg border border-accent">
+        <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-secondary text-white">
@@ -63,18 +59,14 @@ export default function AdminProductsPage() {
                   <td className="px-6 py-4">${product.lastPrice}</td>
                   <td className="px-6 py-4">{product.stock}</td>
                   <td className="px-6 py-4">{product.description}</td>
-                  <td className="px-6 py-4 flex gap-4">
+                  <td className="px-6 py-4 flex gap-2">
                     <button
                       title="Delete"
-                      className="text-red-500 hover:text-red-700"
+                      className="text-red-500 hover:text-red-700 focus:outline-none"
                       onClick={() => {
                         const token = localStorage.getItem("token");
 
-                        axios
-                          .delete(
-                            import.meta.env.VITE_BACKEND_URL +
-                              `/api/products/${product.productId}`,
-                            {
+                        axios.delete(import.meta.env.VITE_BACKEND_URL + `/api/products/${product.productId}`, {
                               headers: {
                                 Authorization: `Bearer ${token}`,
                               },
@@ -91,7 +83,7 @@ export default function AdminProductsPage() {
                     </button>
                     <button
                       title="Edit"
-                      className="text-secondary hover:text-accent"
+                      className="text-blue-500 hover:text-blue-700 focus:outline-none"
                     >
                       <FaPencil />
                     </button>
@@ -103,7 +95,7 @@ export default function AdminProductsPage() {
         </div>
       ) : (
         <div className="w-full h-64 flex justify-center items-center">
-          <div className="w-12 h-12 border-4 border-primary border-t-secondary rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-gray-200 border-t-accent rounded-full animate-spin"></div>
         </div>
       )}
     </div>

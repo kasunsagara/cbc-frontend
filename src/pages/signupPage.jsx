@@ -1,15 +1,15 @@
-import axios from "axios";
-import { useState, useRef } from "react";
-import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useState, useRef } from 'react';
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    password: "",
-    profilePicture: "",
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    profilePicture: '',
   });
 
   // References for each input field
@@ -27,52 +27,42 @@ export default function SignupPage() {
   }
 
   function handleKeyDown(event, nextInputRef) {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       nextInputRef?.current?.focus();
     }
   }
 
   function signup() {
-    axios
-      .post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
-        ...formData,
-        profilePicture:
-          formData.profilePicture ||
-          "https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg",
-      })
+    axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
+      ...formData,
+      profilePicture: formData.profilePicture || 'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
+    })
       .then((res) => {
         if (res.data.error) {
           toast.error(res.data.message);
           return;
         }
-        toast.success("Account created successfully!");
-        window.location.href = "/login";
+        toast.success('Account created successfully!');
+        window.location.href = '/login';
       })
       .catch((err) => {
-        toast.error("Something went wrong!");
+        toast.error('Something went wrong!');
         console.error(err);
       });
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-accent">
-      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
+      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg border border-accent">
         <div className="flex justify-center mb-6">
-          <img
-            src="/logo2.png"
-            alt="Logo"
-            className="rounded-full w-[80px] shadow-md"
-          />
+          <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
-        <h1 className="text-2xl font-bold text-secondary text-center mb-6">
+        <h1 className="text-2xl font-bold text-gray-900 text-center mb-6">
           Create an Account
         </h1>
         <form className="space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-secondary mb-1"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">
               Email
             </label>
             <input
@@ -82,15 +72,12 @@ export default function SignupPage() {
               value={formData.email}
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, firstNameRef)}
-              className="w-full p-3 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="firstName"
-              className="block text-sm font-medium text-secondary mb-1"
-            >
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-800 mb-1">
               First Name
             </label>
             <input
@@ -101,15 +88,12 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, lastNameRef)}
               ref={firstNameRef}
-              className="w-full p-3 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="lastName"
-              className="block text-sm font-medium text-secondary mb-1"
-            >
+            <label htmlFor="lastName" className="block text-sm font-medium text-gray-800 mb-1">
               Last Name
             </label>
             <input
@@ -120,15 +104,12 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, passwordRef)}
               ref={lastNameRef}
-              className="w-full p-3 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-secondary mb-1"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-800 mb-1">
               Password
             </label>
             <input
@@ -139,15 +120,12 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, profilePictureRef)}
               ref={passwordRef}
-              className="w-full p-3 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="profilePicture"
-              className="block text-sm font-medium text-secondary mb-1"
-            >
+            <label htmlFor="profilePicture" className="block text-sm font-medium text-gray-800 mb-1">
               Profile Picture (URL)
             </label>
             <input
@@ -157,17 +135,17 @@ export default function SignupPage() {
               value={formData.profilePicture}
               onChange={handleChange}
               onKeyDown={(e) => {
-                if (e.key === "Enter") signup();
+                if (e.key === 'Enter') signup();
               }}
               ref={profilePictureRef}
-              className="w-full p-3 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               placeholder="Optional"
             />
           </div>
           <button
             type="button"
             onClick={signup}
-            className="w-full px-4 py-2 font-semibold text-white bg-primary rounded-lg hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           >
             Sign Up
           </button>
@@ -176,7 +154,7 @@ export default function SignupPage() {
           <span className="text-sm text-gray-600">Already have an account?</span>
           <Link
             to="/login"
-            className="ml-1 text-primary hover:text-accent font-semibold transition-all duration-200"
+            className="ml-1 text-secondary hover:text-yellow-600 font-semibold transition-all duration-200"
           >
             Login
           </Link>

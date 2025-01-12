@@ -1,48 +1,33 @@
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-  return (
-    <header className="bg-primary w-full h-[100px] shadow-lg relative flex justify-center items-center">
-      {/* Logo */}
-      <img
-        src="/logo1.png"
-        alt="Logo"
-        className="cursor-pointer h-[80px] w-[80px] rounded-full absolute left-[20px] border-4 border-secondary shadow-md"
-      />
+    return (
+        <header className="bg-primary w-full h-[100px] relative flex justify-center items-center shadow-lg">
 
-      {/* Navigation Links */}
-      <nav className="h-full flex items-center w-[600px] justify-between">
-        <Link
-          to="/"
-          className="text-secondary font-semibold text-lg hover:text-white transition duration-300 hover:bg-secondary py-2 px-4 rounded-lg"
-        >
-          Home
-        </Link>
+            {/* Logo Section */}
+            <img src="/logo1.png" className="cursor-pointer h-full rounded-full absolute left-[10px] sm:left-[30px] lg:left-[50px]" alt="Logo"/>
 
-        <Link
-          to="/products"
-          className="text-secondary font-semibold text-lg hover:text-white transition duration-300 hover:bg-secondary py-2 px-4 rounded-lg"
-        >
-          Products
-        </Link>
+            {/* Navigation Links */}
+            <div className="h-full flex items-center w-full max-w-[900px] justify-between px-24">
 
-        <Link
-          to="/about"
-          className="text-secondary font-semibold text-lg hover:text-white transition duration-300 hover:bg-secondary py-2 px-4 rounded-lg"
-        >
-          About Us
-        </Link>
+                <Link to="/" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                    Home
+                </Link>
 
-        <Link
-          to="/contact"
-          className="text-secondary font-semibold text-lg hover:text-white transition duration-300 hover:bg-secondary py-2 px-4 rounded-lg"
-        >
-          Contact Us
-        </Link>
-      </nav>
+                <Link to="/products" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                    Products
+                </Link>
 
-      {/* Decorative Accent Line */}
-      <div className="absolute bottom-0 w-full h-[4px] bg-accent shadow-md"></div>
-    </header>
-  );
+                <Link to="/about" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                    About Us
+                </Link>
+
+                <Link to="/contact" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                    Contact Us
+                </Link>
+
+            </div>
+
+        </header>
+    );
 }
