@@ -54,14 +54,14 @@ export default function ProductOverview() {
         }
         {
           status === "found" && (
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="w-[35%] h-full">
+            <div className="w-full h-full flex items-center justify-center p-4"> 
+              <div className="w-[37%] h-full p-4">
                 <ImageSlider images={product.images} />
               </div>
-              <div className="w-[65%] h-full p-4">
-                <h1 className="text-3xl font-bold text-gray-800">{product.productName}</h1>
-                <h1 className="text-3xl font-bold text-gray-500">{product.altNames.join(" | ")}</h1>
-                <p className="text-xl text-gray-600">
+              <div className="w-[63%] h-full p-4"> 
+                <h1 className="text-3xl font-bold text-gray-800 mb-4">{product.productName}</h1>
+                <h1 className="text-3xl font-bold text-gray-500 mb-6">{product.altNames.join(" | ")}</h1>
+                <p className="text-xl text-gray-600 mb-6">
                   {(product.price > product.lastPrice) && (
                     <span className="line-through text-red-500">LKR.{product.price}</span>
                   )}
