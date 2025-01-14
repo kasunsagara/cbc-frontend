@@ -47,7 +47,7 @@ export default function AdminHomePage() {
 
             {/* Main Content */}
             <div className="w-[80%] h-screen bg-primary p-6 overflow-auto">
-                <div className="bg-yellow-200 p-6 rounded-lg shadow-inner">
+                <div className="p-6 rounded-lg shadow-inner bg-secondary backdrop-filter backdrop-blur-lg bg-opacity-30">
                     <Routes>
                         <Route
                             path="/"

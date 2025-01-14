@@ -73,7 +73,7 @@ export default function EditProductForm() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-yellow-200">
+        <div className="min-h-screen flex items-center justify-center">
             <form className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8 border-2">
                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Edit Product Form</h1>
                 <div className="space-y-6">

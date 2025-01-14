@@ -28,7 +28,7 @@ export default function ProductOverview() {
 
   return (
     <div className="w-full h-[calc(100vh-100px)] flex justify-center items-center">
-      <div className="max-w-6xl bg-white p-6 rounded-lg shadow-lg">
+      <div className="max-w-5xl p-5 rounded-lg shadow-lg bg-white backdrop-filter backdrop-blur-lg bg-opacity-40">
         {
           status === "loading" && (
             <div className="w-full h-full flex items-center justify-center">

@@ -22,7 +22,7 @@ export default function AdminProductsPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="p-8 min-h-screen bg-yellow-200">
+    <div className="p-8 min-h-screen">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Admin Products Page</h1>
         <Link
