@@ -78,7 +78,7 @@ return (
     <h1 className="text-3xl font-bold text-accent">
       Grand Total: LKR. {total}
     </h1>
-    <button onClick={onOrderCheckOutClick} className="bg-accent hover:bg-accent-light text-white p-2 rounded-lg w-[300px]">
+    <button onClick={onOrderCheckOutClick} className="bg-secondary hover:bg-accent text-white p-2 rounded-lg w-[300px]">
       Checkout
     </button>
   </div>
