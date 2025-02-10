@@ -51,7 +51,7 @@ export default function ProductOverview() {
                 <p className="text-xl text-gray-600 mb-6">Product not found</p>
                 <button
                   onClick={() => window.history.back()}
-                  className="px-6 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all"
+                  className="px-6 py-2 bg-secondary hover:bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all"
                 >
                   Go Back
                 </button>
@@ -75,7 +75,7 @@ export default function ProductOverview() {
                   <span>{" LKR. " + product.lastPrice}</span>
                 </p>
                 <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
-                <button onClick={onAddtoCartClick} className="bg-accent text-white p-2 rounded-lg">Add to cart</button>
+                <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg">Add to cart</button>
               </div>
             </div>
           )
