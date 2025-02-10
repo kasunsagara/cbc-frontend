@@ -25,6 +25,9 @@ export default function Header() {
                 <Link to="/contact" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
                     Contact Us
                 </Link>
+                <Link to="/cart" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                    Cart
+                </Link>
 
             </div>
 
