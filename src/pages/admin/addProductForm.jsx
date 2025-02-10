@@ -164,7 +164,7 @@ export default function AddProductForm() {
                     <button
                         type="button"
                         onClick={handleSubmit}
-                        className="w-full bg-secondary text-white py-3 px-6 rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent"
+                        className="w-full bg-secondary text-white py-3 px-6 rounded-lg hover:bg-accent font-semibold focus:outline-none focus:ring-2 focus:ring-accent"
                     >
                         Add Product
                     </button>

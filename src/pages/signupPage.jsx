@@ -145,7 +145,7 @@ export default function SignupPage() {
           <button
             type="button"
             onClick={signup}
-            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           >
             Sign Up
           </button>
@@ -154,7 +154,7 @@ export default function SignupPage() {
           <span className="text-sm text-gray-600">Already have an account?</span>
           <Link
             to="/login"
-            className="ml-1 text-secondary hover:text-yellow-600 font-semibold transition-all duration-200"
+            className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
           >
             Login
           </Link>
