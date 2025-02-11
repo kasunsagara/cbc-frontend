@@ -131,7 +131,7 @@ export default function EditProductForm() {
                     <div className="flex flex-col">
                         <label className="block text-gray-700 mb-2">Price</label>
                         <input
-                            type="text"
+                            type="number"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 4)}
@@ -143,7 +143,7 @@ export default function EditProductForm() {
                     <div className="flex flex-col">
                         <label className="block text-gray-700 mb-2">Last Price</label>
                         <input
-                            type="text"
+                            type="number"
                             value={lastPrice}
                             onChange={(e) => setLastPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 5)}
@@ -155,7 +155,7 @@ export default function EditProductForm() {
                     <div className="flex flex-col">
                         <label className="block text-gray-700 mb-2">Stock</label>
                         <input
-                            type="text"
+                            type="number"
                             value={stock}
                             onChange={(e) => setStock(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 6)}
