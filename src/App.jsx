@@ -15,7 +15,7 @@ function App() {
     <div className="bg-primary">
     <BrowserRouter>
     <Toaster position="top-right"/>
-    <GoogleOAuthProvider clientId='474190677487-al5kcu80p13msbvmmf8tu52d8la5bgie.apps.googleusercontent.com'></GoogleOAuthProvider>
+    <GoogleOAuthProvider clientId='880634139641-pdjhsj7u82geto5dp7u2rr7cidod3fq2.apps.googleusercontent.com'></GoogleOAuthProvider>
     <Routes path="/*">
         <Route path="/*" element={<HomePage />} />
 
