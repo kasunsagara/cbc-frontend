@@ -2,8 +2,32 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
 
 export default function LoginPage() {
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: (res)=>{
+      console.log(res)
+      axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/google",{
+        token : res.access_token
+      }).then(
+        (res)=>{
+          if(res.data.message == "User created"){
+            toast.success("Your account is created now you can login via google.")
+          }else{
+            localStorage.setItem("token",res.data.token)
+            if(res.data.user.type == "admin"){
+              window.location.href = "/admin"
+            }else{
+              window.location.href = "/"
+            }
+          }
+        }
+      )
+    }
+  })
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordInputRef = useRef(null);
@@ -77,6 +101,13 @@ export default function LoginPage() {
             className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           >
             Login
+          </button>
+          <button 
+          onClick={()=>{googleLogin()}} 
+          type="button" 
+          className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          >
+            Login with google
           </button>
         </form>
         <div className="mt-6 text-center">
