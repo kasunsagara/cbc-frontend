@@ -4,8 +4,7 @@ export default function ProductCard(props) {
   console.log(props);
 
   return (
-    <Link to={`/productInfo/${props.product.productId}`}>
-      <div className="w-[290px] h-[440px] mt-[80px] m-[30px] rounded-xl shadow-lg shadow-gray-500 hover:shadow-primary hover:border-[3px] overflow-hidden flex flex-col transition-all duration-300 hover:scale-105">
+    <Link  to={`/productInfo/${props.product.productId}`} className="w-[290px] h-[440px] mt-[80px] m-[30px] rounded-xl shadow-lg shadow-gray-500 hover:shadow-primary hover:border-[3px] overflow-hidden flex flex-col transition-all duration-300 hover:scale-105">
         <img
           src={props.product.images[0]}
           alt={props.product.productName}
@@ -27,7 +26,6 @@ export default function ProductCard(props) {
             </p>
           )}
         </div>
-      </div>
     </Link>
   );
 }
