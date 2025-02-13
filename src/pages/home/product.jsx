@@ -6,6 +6,7 @@ import ProductCard from "../../components/productCard"
 export default function ProductPage(){
   const [products,setProducts]=useState([])
   const [loadingStatus,setLoadingStatus]=useState('loading')//loaded, loading, error
+  const [query, setQuery] = useState("")
 
   useEffect(
     ()=>{
