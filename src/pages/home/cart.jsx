@@ -22,7 +22,7 @@ export default function Cart() {
         console.log(res.data);
         if(res.data.total != null){
           setTotal(res.data.total);
-          setLabeledTotal(res.data.total);
+          setLabeledTotal(res.data.labeledTotal);
         }
       });
   }, []);
@@ -61,7 +61,7 @@ export default function Cart() {
         Discount: LKR. {(labeledTotal - total).toFixed(2)}
       </h1>
       <h1 className="text-3xl font-bold text-neutral-600">
-        Grand Total: LKR. {total}
+        Grand Total: LKR. {total.toFixed(2)}
       </h1>
       <button
         onClick={onOrderCheckOutClick}
