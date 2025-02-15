@@ -24,7 +24,7 @@ export default function AdminProductsPage() {
   return (
     <div className="p-8 min-h-screen">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Admin Products Page</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Admin Products</h1>
         <Link
           to={"/admin/products/addProduct"}
           className="flex items-center justify-center w-12 h-12 bg-secondary text-white rounded-full shadow-md hover:bg-accent transition-all"

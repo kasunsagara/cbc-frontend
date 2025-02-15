@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+
 export default function MyOrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -25,48 +27,57 @@ export default function MyOrdersPage() {
         setLoading(false);
       });
   }, []);
+
   const calculateTotal = (orderedItems) => {
     return orderedItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
   const handleRowClick = (order) => {
     setSelectedOrder(order);
   };
+
   const closeModal = () => {
     setSelectedOrder(null);
   };
+
   return (
     <div className="w-full h-full flex flex-col items-center p-4">
-      <h1 className="text-xl font-bold mb-4">My Orders</h1>
+      <h1 className="text-2xl font-bold mb-4">My Orders</h1>
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-200 shadow-sm rounded-lg">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-2 border-b text-left">Order ID</th>
-              <th className="p-2 border-b text-left">Status</th>
-              <th className="p-2 border-b text-left">Date</th>
-              <th className="p-2 border-b text-left">Total</th>
+        <table className="w-3/5 mx-auto border border-gray-400 border-collapse">
+          <thead>
+            <tr className="bg-gray-200 border border-gray-400">
+              <th className="border border-gray-400 p-2">Order ID</th>
+              <th className="border border-gray-400 p-2">Status</th>
+              <th className="border border-gray-400 p-2">Date</th>
+              <th className="border border-gray-400 p-2">Total</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr
+              <tr 
                 key={order.orderId}
-                className="hover:bg-gray-50 cursor-pointer"
+                className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400"
                 onClick={() => handleRowClick(order)}
               >
-                <td className="p-2 border-b">{order.orderId}</td>
-                <td className="p-2 border-b">{order.status}</td>
-                <td className="p-2 border-b">{new Date(order.date).toLocaleDateString()}</td>
-                <td className="p-2 border-b">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
+                <td className="p-2 border border-gray-400">{order.orderId}</td>
+                <td className="p-2 border border-gray-400">{order.status}</td>
+                <td className="p-2 border border-gray-400">
+                  {new Date(order.date).toLocaleDateString()}
+                </td>
+                <td className="p-2 border border-gray-400">
+                  LKR {calculateTotal(order.orderedItems).toFixed(2)}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
+
       {/* Modal */}
       {selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -97,7 +108,7 @@ export default function MyOrdersPage() {
             <h3 className="text-md font-bold mt-4">Ordered Items:</h3>
             <div className="border-t border-gray-200 mt-2 pt-2">
               {selectedOrder.orderedItems.map((item, index) => (
-                <div key={index} className="mb-2">
+                <div key={index} className="mb-2 border-b border-gray-300 pb-2">
                   <p>
                     <span className="font-semibold">Name:</span> {item.name}
                   </p>

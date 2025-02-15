@@ -77,31 +77,36 @@ export default function AdminOrdersPage() {
       });
   };
   return (
-    <div className="w-full h-full flex flex-col items-center p-4">
-      <h1 className="text-xl font-bold mb-4">Admin Orders</h1>
+    <div className="p-8 min-h-screen">
+      <div className="flex justify-between items-center mb-6">
+      <h1 className="text-3xl font-bold text-gray-800">Admin Orders</h1>
+      </div>
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-200 shadow-sm rounded-lg">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-2 border-b text-left">Order ID</th>
-              <th className="p-2 border-b text-left">Status</th>
-              <th className="p-2 border-b text-left">Date</th>
-              <th className="p-2 border-b text-left">Total</th>
-              <th className="p-2 border-b text-left">Actions</th>
+        <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-secondary text-white">
+              <th className="px-6 py-3">Order ID</th>
+              <th className="px-6 py-3">Status</th>
+              <th className="px-6 py-3">Date</th>
+              <th className="px-6 py-3">Total</th>
+              <th className="px-6 py-3">Actions</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.orderId} className="hover:bg-gray-50">
-                <td className="p-2 border-b">{order.orderId}</td>
-                <td className="p-2 border-b">{order.status}</td>
-                <td className="p-2 border-b">{new Date(order.date).toLocaleDateString()}</td>
-                <td className="p-2 border-b">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
-                <td className="p-2 border-b">
+              <tr key={order.orderId} className={`hover:bg-gray-100 transition-all ${
+                order.orderId % 2 === 0 ? "bg-white" : "bg-white"
+              }`}>
+                <td className="px-6 py-4">{order.orderId}</td>
+                <td className="px-6 py-4">{order.status}</td>
+                <td className="px-6 py-4">{new Date(order.date).toLocaleDateString()}</td>
+                <td className="px-6 py-4">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
+                <td className="px-6 py-4 flex gap-2">
                   <button
                     className="bg-blue-500 text-white px-3 py-1 rounded-lg mr-2 hover:bg-blue-600"
                     onClick={() => handleViewDetails(order)}
@@ -119,6 +124,7 @@ export default function AdminOrdersPage() {
             ))}
           </tbody>
         </table>
+      </div>
       )}
       {/* Detail Modal */}
       {detailModalVisible && selectedOrder && (

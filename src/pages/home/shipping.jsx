@@ -3,6 +3,7 @@ import CartCard from "../../components/cartCard";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 export default function ShippingPage() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function ShippingPage() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+
   useEffect(() => {
     if (!cart) {
       toast.error("No items received");
@@ -33,6 +35,7 @@ export default function ShippingPage() {
         console.error(err);
       });
   }, [cart, navigate]);
+
   function validateInputs() {
     if (!name.trim()) {
       toast.error("Please enter your name.");
@@ -48,6 +51,7 @@ export default function ShippingPage() {
     }
     return true;
   }
+
   function createOrder() {
     if (!validateInputs()) return;
     const token = localStorage.getItem("token");
@@ -79,13 +83,44 @@ export default function ShippingPage() {
         console.error(err);
       });
   }
+
   if (!cart) {
     return null;
   }
+
   return (
-    <div className="w-full h-full bg-gray-100 p-4">
-      <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-4">Shipping Details</h1>
+    <div className="w-full h-full overflow-y-scroll flex flex-col items-center p-4">
+      <table className="w-3/5 mx-auto border border-gray-400 border-collapse">
+        <thead>
+          <tr className="bg-gray-200 border border-gray-400">
+            <th className="border border-gray-400 p-2">Image</th>
+            <th className="border border-gray-400 p-2">Product Name</th>
+            <th className="border border-gray-400 p-2">Product ID</th>
+            <th className="border border-gray-400 p-2">Qty</th>
+            <th className="border border-gray-400 p-2">Price</th>
+            <th className="border border-gray-400 p-2">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((item) => (
+            <CartCard key={item.productId} productId={item.productId} qty={item.qty} />
+          ))}
+        </tbody>
+      </table>
+      <div className="mt-6 text-center">
+        <h1 className="text-3xl font-bold text-neutral-600 mt-4">
+          Total: LKR. {labeledTotal.toFixed(2)}
+        </h1>
+        <h1 className="text-3xl font-bold text-neutral-600">
+          Discount: LKR. {(labeledTotal - total).toFixed(2)}
+        </h1>
+        <h1 className="text-3xl font-bold text-neutral-600">
+          Grand Total: LKR. {total.toFixed(2)}
+        </h1>
+      </div>
+
+      <div className="w-3/5 bg-white backdrop-filter backdrop-blur-lg bg-opacity-60 p-6 rounded-lg shadow-md mt-6">
+        <h2 className="text-2xl font-bold mb-4">Shipping Details</h2>
         <div className="mb-4">
           <label className="block font-medium text-gray-700 mb-1">Name</label>
           <input
@@ -115,39 +150,8 @@ export default function ShippingPage() {
             placeholder="Enter your phone number"
           />
         </div>
-        <h2 className="text-xl font-bold mt-6 mb-4">Order Summary</h2>
-        <table className="w-full border-collapse border border-gray-300 mb-4">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Image</th>
-              <th className="border border-gray-300 p-2">Product Name</th>
-              <th className="border border-gray-300 p-2">Product ID</th>
-              <th className="border border-gray-300 p-2">Qty</th>
-              <th className="border border-gray-300 p-2">Price</th>
-              <th className="border border-gray-300 p-2">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((item) => (
-              <CartCard
-                key={item.productId}
-                productId={item.productId}
-                qty={item.qty}
-              />
-            ))}
-          </tbody>
-        </table>
-        <h1 className="text-lg font-bold text-gray-700 mb-2">
-          Total: LKR. {labeledTotal.toFixed(2)}
-        </h1>
-        <h1 className="text-lg font-bold text-gray-700 mb-2">
-          Discount: LKR. {(labeledTotal - total).toFixed(2)}
-        </h1>
-        <h1 className="text-lg font-bold text-gray-700 mb-4">
-          Grand Total: LKR. {total.toFixed(2)}
-        </h1>
         <button
-          className="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
+          className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg w-full"
           onClick={createOrder}
         >
           Checkout
