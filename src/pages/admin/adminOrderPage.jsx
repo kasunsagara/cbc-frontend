@@ -190,7 +190,7 @@ export default function AdminOrdersPage() {
       </div>
       <div className="flex justify-end mt-4">
         <button
-          className="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500"
+          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-400"
           onClick={closeModals}
         >
           Close
@@ -231,13 +231,13 @@ export default function AdminOrdersPage() {
           </div>
           <div className="flex justify-end space-x-4">
             <button
-              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400"
+              className="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-300"
               onClick={closeModals}
             >
               Cancel
             </button>
             <button
-              className="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500"
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-400"
               onClick={handleUpdate}
             >
               Update
