@@ -54,7 +54,7 @@ export default function ProductPage(){
             >
               <input
                 type="text"
-                className="w-1/2 p-2 absolute z-50"
+                className="w-1/2 p-2 absolute z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80"
                 placeholder="Search Products"
                 onChange={search}
                 value={query}

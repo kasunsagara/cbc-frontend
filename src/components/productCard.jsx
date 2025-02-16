@@ -17,11 +17,11 @@ export default function ProductCard(props) {
           <h2 className="text-lg text-gray-500 text-center">
             {props.product.productId}
           </h2>
-          <p className="text-left text-xl">
+          <p className="text-xl text-center">
             LKR. {props.product.lastPrice.toFixed(2)}
           </p>
           {props.product.lastPrice < props.product.price && (
-            <p className="text-left text-xl text-gray-500 font-semibold line-through">
+            <p className="text-xl text-center text-gray-500 font-semibold line-through">
               LKR. {props.product.price.toFixed(2)}
             </p>
           )}

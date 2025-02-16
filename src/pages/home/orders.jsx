@@ -77,27 +77,26 @@ export default function MyOrdersPage() {
           </tbody>
         </table>
       )}
-
       {/* Modal */}
       {selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-md p-4 rounded-lg shadow-lg">
-            <h2 className="text-lg font-bold mb-4">Order Details</h2>
+          <div className="bg-primary w-full max-w-4xl p-4 rounded-lg shadow-lg">
+            <h2 className="text-lg font-bold mb-4 text-secondary">Order Details</h2>
             <p>
-              <span className="font-semibold">Order ID:</span> {selectedOrder.orderId}
+            <span className="font-semibold">Order ID:</span> {selectedOrder.orderId}
             </p>
             <p>
-              <span className="font-semibold">Status:</span> {selectedOrder.status}
+            <span className="font-semibold">Status:</span> {selectedOrder.status}
             </p>
             <p>
-              <span className="font-semibold">Date:</span>{" "}
-              {new Date(selectedOrder.date).toLocaleString()}
+            <span className="font-semibold">Date:</span>{" "}
+            {new Date(selectedOrder.date).toLocaleString()}
             </p>
             <p>
-              <span className="font-semibold">Name:</span> {selectedOrder.name}
+            <span className="font-semibold">Name:</span> {selectedOrder.name}
             </p>
             <p>
-              <span className="font-semibold">Address:</span> {selectedOrder.address}
+            <span className="font-semibold">Address:</span> {selectedOrder.address}
             </p>
             <p>
               <span className="font-semibold">Phone:</span> {selectedOrder.phone}
@@ -105,10 +104,17 @@ export default function MyOrdersPage() {
             <p>
               <span className="font-semibold">Notes:</span> {selectedOrder.notes || "None"}
             </p>
-            <h3 className="text-md font-bold mt-4">Ordered Items:</h3>
-            <div className="border-t border-gray-200 mt-2 pt-2">
+            <h3 className="text-md font-bold mt-4 text-secondary">Ordered Items:</h3>
+            <div className="mt-2 grid grid-cols-2 gap-4 max-h-80 overflow-y-auto">
               {selectedOrder.orderedItems.map((item, index) => (
-                <div key={index} className="mb-2 border-b border-gray-300 pb-2">
+                <div
+                  key={index}
+                  className="p-4 border border-gray-300 rounded-md"
+                  style={{
+                    backgroundColor: "#FDDC5C",
+                    height: "auto", // Allow for flexible height based on content
+                  }}
+                >
                   <p>
                     <span className="font-semibold">Name:</span> {item.name}
                   </p>
@@ -132,7 +138,7 @@ export default function MyOrdersPage() {
             </div>
             <div className="flex justify-end mt-4">
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                className="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500"
                 onClick={closeModal}
               >
                 Close

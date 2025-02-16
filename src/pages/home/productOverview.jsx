@@ -88,8 +88,12 @@ export default function ProductOverview() {
                   <span>{" LKR. " + product.lastPrice}</span>
                 </p>
                 <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
-                <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg">Add to cart</button>
-                <button onClick={onBuyNowClick} className=" bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg">Buy Now</button>
+                <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg mr-2">
+                Add to cart
+                </button>
+                <button onClick={onBuyNowClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg">
+                Buy Now
+                </button>
               </div>
             </div>
           )

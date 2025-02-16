@@ -33,17 +33,17 @@ export default function CartCard(props){
         <tr>loading</tr>
       ) : (
         <tr className="hover:bg-accent hover:text-white cursor-pointer">
-          <td className="">
+          <td className="p-2 border border-gray-400">
             <img
               src={product?.images[0]}
               className="w-[90px] h-[90px] object-cover mx-auto"
             />
           </td>
-          <td className="text-center">{product?.productName}</td>
-          <td className="text-center">{productId}</td>
-          <td className="text-center">{qty}</td>
-          <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
-          <td className="text-center">
+          <td className="text-center p-2 border border-gray-400">{product?.productName}</td>
+          <td className="text-center p-2 border border-gray-400">{productId}</td>
+          <td className="text-center p-2 border border-gray-400">{qty}</td>
+          <td className="text-center p-2 border border-gray-400">LKR. {product?.lastPrice.toFixed(2)}</td>
+          <td className="text-center p-2 border border-gray-400">
             {(product?.lastPrice * qty).toFixed(2)}
           </td>
         </tr>
