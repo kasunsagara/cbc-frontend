@@ -1,9 +1,10 @@
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
-import { BsGraphUp, BsBoxSeam, BsCart4, BsPeopleFill } from "react-icons/bs";
+import { FaChartLine, FaBox, FaShoppingCart, FaUsers } from "react-icons/fa";
 import AdminProductsPage from "./admin/adminProductsPage";
 import AddProductForm from "./admin/addProductForm";
 import EditProductForm from "./admin/editProductForm";
 import AdminOrdersPage from "./admin/adminOrderPage";
+import AdminDashboardPage from "./admin/adminDashboardPage";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -48,7 +49,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/dashboard"
                 >
-                    <BsGraphUp size={20} />
+                    <FaChartLine size={20} />
                     <span className="text-lg">Dashboard</span>
                 </Link>
 
@@ -56,7 +57,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/products"
                 >
-                    <BsBoxSeam size={20} />
+                    <FaBox size={20} />
                     <span className="text-lg">Products</span>
                 </Link>
 
@@ -64,7 +65,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/orders"
                 >
-                    <BsCart4 size={20} />
+                    <FaShoppingCart size={20} />
                     <span className="text-lg">Orders</span>
                 </Link>
 
@@ -72,7 +73,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/customers"
                 >
-                    <BsPeopleFill size={20} />
+                    <FaUsers size={20} />
                     <span className="text-lg">Customers</span>
                 </Link>
             </div>
@@ -91,7 +92,7 @@ export default function AdminHomePage() {
                                 </div>
                             }
                         />
-                        <Route path="/dashboard" element={<h1 className="text-xl font-medium text-primary">Dashboard</h1>} />
+                        <Route path="/dashboard" element={<AdminDashboardPage/>} />
                         <Route path="/products" element={<AdminProductsPage />} />
                         <Route path="/products/addProduct" element={<AddProductForm />} />
                         <Route path="/products/editProduct" element={<EditProductForm/>} />

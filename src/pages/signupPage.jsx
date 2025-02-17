@@ -53,7 +53,7 @@ export default function SignupPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
-      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg border border-accent">
+      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
           <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
@@ -72,7 +72,7 @@ export default function SignupPage() {
               value={formData.email}
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, firstNameRef)}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
@@ -88,7 +88,7 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, lastNameRef)}
               ref={firstNameRef}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
@@ -104,7 +104,7 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, passwordRef)}
               ref={lastNameRef}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
@@ -120,7 +120,7 @@ export default function SignupPage() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, profilePictureRef)}
               ref={passwordRef}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
@@ -138,7 +138,7 @@ export default function SignupPage() {
                 if (e.key === 'Enter') signup();
               }}
               ref={profilePictureRef}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               placeholder="Optional"
             />
           </div>

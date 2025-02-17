@@ -60,7 +60,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
-      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg border border-accent">
+      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
           <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               onKeyDown={(e) => handleKeyDown(e, passwordInputRef)}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />
           </div>
           <div>
@@ -92,7 +92,7 @@ export default function LoginPage() {
                 if (e.key === 'Enter') login();
               }}
               ref={passwordInputRef}
-              className="w-full p-3 border border-accent rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />
           </div>
           <button

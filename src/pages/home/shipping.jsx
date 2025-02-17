@@ -119,35 +119,41 @@ export default function ShippingPage() {
         </h1>
       </div>
 
-      <div className="w-3/5 bg-white backdrop-filter backdrop-blur-lg bg-opacity-60 p-6 rounded-lg shadow-md mt-6">
+      <div className="w-3/5 bg-white p-6 rounded-lg shadow-md mt-6">
         <h2 className="text-2xl font-bold mb-4">Shipping Details</h2>
         <div className="mb-4">
           <label className="block font-medium text-gray-700 mb-1">Name</label>
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            id="name"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
+            onKeyDown={(e) => e.key === "Enter" && document.getElementById("address").focus()}
           />
         </div>
         <div className="mb-4">
           <label className="block font-medium text-gray-700 mb-1">Address</label>
           <textarea
-            className="w-full p-2 border border-gray-300 rounded-md"
+            id="address"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Enter your address"
+            onKeyDown={(e) => e.key === "Enter" && document.getElementById("phone").focus()}
           />
         </div>
         <div className="mb-4">
           <label className="block font-medium text-gray-700 mb-1">Phone</label>
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            id="phone"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Enter your phone number"
+            onKeyDown={(e) => e.key === "Enter" && createOrder()}
           />
         </div>
         <button
