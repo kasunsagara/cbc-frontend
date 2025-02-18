@@ -71,6 +71,7 @@ export default function SignupPage() {
               type="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="Enter your email"
               onKeyDown={(e) => handleKeyDown(e, firstNameRef)}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
@@ -86,6 +87,7 @@ export default function SignupPage() {
               type="text"
               value={formData.firstName}
               onChange={handleChange}
+              placeholder="Enter your first name"
               onKeyDown={(e) => handleKeyDown(e, lastNameRef)}
               ref={firstNameRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
@@ -102,6 +104,7 @@ export default function SignupPage() {
               type="text"
               value={formData.lastName}
               onChange={handleChange}
+              placeholder="Enter your last name"
               onKeyDown={(e) => handleKeyDown(e, passwordRef)}
               ref={lastNameRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
@@ -118,6 +121,7 @@ export default function SignupPage() {
               type="password"
               value={formData.password}
               onChange={handleChange}
+              placeholder="Enter your password"
               onKeyDown={(e) => handleKeyDown(e, profilePictureRef)}
               ref={passwordRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
@@ -134,12 +138,12 @@ export default function SignupPage() {
               type="text"
               value={formData.profilePicture}
               onChange={handleChange}
+              placeholder="Enter your profile picture URL"
               onKeyDown={(e) => {
                 if (e.key === 'Enter') signup();
               }}
               ref={profilePictureRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
-              placeholder="Optional"
             />
           </div>
           <button

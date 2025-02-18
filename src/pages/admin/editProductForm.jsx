@@ -86,8 +86,8 @@ export default function EditProductForm() {
                             onChange={(e) => setProductId(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 0)}
                             ref={(el) => (inputRefs.current[0] = el)} // Assign refs dynamically
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Product ID"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter product ID"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -98,8 +98,8 @@ export default function EditProductForm() {
                             onChange={(e) => setProductName(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 1)}
                             ref={(el) => (inputRefs.current[1] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Product Name"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter product name"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -110,8 +110,8 @@ export default function EditProductForm() {
                             onChange={(e) => setAlternativeNames(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 2)}
                             ref={(el) => (inputRefs.current[2] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Alternative Names (comma-separated)"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter alternative names separated by commas"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -124,8 +124,7 @@ export default function EditProductForm() {
                             multiple
                             onKeyDown={(e) => handleKeyDown(e, 3)}
                             ref={(el) => (inputRefs.current[3] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Image URLs (comma-separated)"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -136,8 +135,8 @@ export default function EditProductForm() {
                             onChange={(e) => setPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 4)}
                             ref={(el) => (inputRefs.current[4] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Price"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter price"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -148,8 +147,8 @@ export default function EditProductForm() {
                             onChange={(e) => setLastPrice(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 5)}
                             ref={(el) => (inputRefs.current[5] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Last Price"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter last price"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -160,8 +159,8 @@ export default function EditProductForm() {
                             onChange={(e) => setStock(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 6)}
                             ref={(el) => (inputRefs.current[6] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Stock"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter stock"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -171,8 +170,8 @@ export default function EditProductForm() {
                             onChange={(e) => setDescription(e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, 7)}
                             ref={(el) => (inputRefs.current[7] = el)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                            placeholder="Enter Description"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                            placeholder="Enter description"
                         ></textarea>
                     </div>
                     <button

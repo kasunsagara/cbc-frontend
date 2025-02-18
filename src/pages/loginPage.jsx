@@ -74,6 +74,7 @@ export default function LoginPage() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
               type="email"
               onKeyDown={(e) => handleKeyDown(e, passwordInputRef)}
               className="w-full p-3 border border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
@@ -88,6 +89,7 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
               onKeyDown={(e) => {
                 if (e.key === 'Enter') login();
               }}
