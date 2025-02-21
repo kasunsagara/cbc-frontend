@@ -5,6 +5,7 @@ import AddProductForm from "./admin/addProductForm";
 import EditProductForm from "./admin/editProductForm";
 import AdminOrdersPage from "./admin/adminOrderPage";
 import AdminDashboardPage from "./admin/adminDashboardPage";
+import AdminCustomersPage from "./admin/adminCustomersPage";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -97,7 +98,7 @@ export default function AdminHomePage() {
                         <Route path="/products/addProduct" element={<AddProductForm />} />
                         <Route path="/products/editProduct" element={<EditProductForm/>} />
                         <Route path="/orders" element={<AdminOrdersPage/>} />
-                        <Route path="/customers" element={<h1 className="text-xl font-medium text-primary">Customers</h1>} />
+                        <Route path="/customers" element={<AdminCustomersPage/>} />
                         <Route path="/*" element={<h1 className="text-xl font-medium text-red-500">404 - Page Not Found</h1>} />
                         </Routes>}
                         {

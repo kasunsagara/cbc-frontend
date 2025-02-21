@@ -5,7 +5,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function AdminProductsPage() {
+export default function AdminCustomersPage() {
   const [products, setProducts] = useState([]);
   const [productsLoaded, setProductsLoaded] = useState(false);
 

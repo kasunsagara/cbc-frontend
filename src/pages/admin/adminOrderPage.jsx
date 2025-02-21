@@ -161,7 +161,7 @@ export default function AdminOrdersPage() {
         {selectedOrder.orderedItems.map((item, index) => (
           <div
             key={index}
-            className="p-4 border border-gray-300 rounded-md"
+            className="p-4 rounded-md"
             style={{
               backgroundColor: "#FDDC5C",
               height: "auto", // Allow for flexible height based on content

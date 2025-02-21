@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
+import { BsGoogle } from 'react-icons/bs';
 
 export default function LoginPage() {
 
@@ -77,7 +78,7 @@ export default function LoginPage() {
               placeholder="Enter your email"
               type="email"
               onKeyDown={(e) => handleKeyDown(e, passwordInputRef)}
-              className="w-full p-3 border border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />
           </div>
           <div>
@@ -114,8 +115,9 @@ export default function LoginPage() {
           <button 
           onClick={()=>{googleLogin()}} 
           type="button" 
-          className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           >
+            <BsGoogle className="text-lg" />
             Login with google
           </button>
         </form>
