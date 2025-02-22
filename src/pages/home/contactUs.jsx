@@ -1,11 +1,16 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [messages, setMessages] = useState([]);
+
+  // Refs for the input fields
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
 
   useEffect(() => {
     fetchMessages();
@@ -26,7 +31,7 @@ export default function ContactUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/contacts/submit", formData, {
         headers: {
@@ -39,6 +44,13 @@ export default function ContactUs() {
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       toast.error("An error occurred. Please try again later.");
+    }
+  };
+
+  const handleKeyPress = (e, nextRef) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission
+      nextRef.current.focus(); // Focus on the next input field
     }
   };
 
@@ -80,10 +92,12 @@ export default function ContactUs() {
           <div>
             <label className="block text-gray-700">Name</label>
             <input
+              ref={nameRef}
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              onKeyPress={(e) => handleKeyPress(e, emailRef)}
               placeholder="Enter your name"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
@@ -92,10 +106,12 @@ export default function ContactUs() {
           <div>
             <label className="block text-gray-700">Email</label>
             <input
+              ref={emailRef}
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onKeyPress={(e) => handleKeyPress(e, messageRef)}
               placeholder="Enter your email"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
@@ -104,6 +120,7 @@ export default function ContactUs() {
           <div>
             <label className="block text-gray-700">Message</label>
             <textarea
+              ref={messageRef}
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -123,7 +140,7 @@ export default function ContactUs() {
       </div>
 
       {/* Display Messages Table */}
-      <div className="w-full max-w-4xl mt-8">
+      <div className="w-full max-w-4xl mt-8 mb-8">
         <h3 className="text-2xl font-semibold text-accent mb-4 p-4 flex flex-col items-center">Submitted Messages</h3>
         {messages.length === 0 ? (
           <p className="text-gray-500">No messages yet.</p>
