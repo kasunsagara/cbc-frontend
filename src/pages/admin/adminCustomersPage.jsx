@@ -60,7 +60,7 @@ export default function AdminCustomersPage() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr className="hover:bg-gray-100">
               <td className="px-6 py-4">
                 <img
                   src={userData.profilePicture}
