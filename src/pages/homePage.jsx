@@ -8,6 +8,7 @@ import Cart from './home/cart';
 import ShippingPage from './home/shipping';
 import MyOrdersPage from './home/orders';
 import ContactUs from './home/contactUs';
+import AboutUs from './home/aboutUs';
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
           <Route path='/orders' element={<MyOrdersPage/>}/>
           <Route path="/productInfo/:id" element={<ProductOverview/>} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>  
       </div>    
     </div>

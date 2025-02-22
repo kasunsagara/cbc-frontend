@@ -15,9 +15,36 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">Contact Us</h2>
-      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-2xl">
+    <div className="w-full h-full overflow-y-scroll flex flex-col items-center">
+      <div className="mt-6 text-gray-700 space-y-5 text-lg p-2">
+      <h3 className="text-2xl font-semibold text-accent mb-4 flex flex-col items-center">Reach Out to Us</h3>
+          <div className="flex items-center space-x-3">
+            <FaPhoneAlt className="text-secondary"/>
+            <span>0771670585</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <FaEnvelope className="text-secondary"/>
+            <span>kasunsagara689@gmail.com</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <FaMapMarkerAlt className="text-secondary"/>
+            <span>74 A, Ridivita, Hiramadagama, Kahawaththa</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
+              <FaWhatsapp />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+          <div className="flex items-center space-x-3">
+            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
+              <FaFacebook />
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+        <h3 className="text-2xl font-semibold text-accent mb-4 p-4">We’d Love to Hear from You</h3>
+        <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-2xl">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700">Name</label>
@@ -62,33 +89,7 @@ export default function ContactUs() {
             Send Message
           </button>
         </form>
-        <div className="mt-6 text-gray-700 space-y-3">
-          <div className="flex items-center space-x-3">
-            <FaPhoneAlt className="text-secondary"/>
-            <span>0771670585</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <FaEnvelope className="text-secondary"/>
-            <span>kasunsagara689@gmail.com</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <FaMapMarkerAlt className="text-secondary"/>
-            <span>74 A, Ridivita, Hiramadagama, Kahawaththa</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
-              <FaWhatsapp />
-              <span>WhatsApp</span>
-            </a>
-          </div>
-          <div className="flex items-center space-x-3">
-            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
-              <FaFacebook />
-              <span>Facebook</span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );
-};
+}

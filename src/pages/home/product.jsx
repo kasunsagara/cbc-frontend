@@ -48,10 +48,7 @@ export default function ProductPage(){
     }
     return (
       <div className="w-full h-full pt-4 relative">
-        <div
-              className="abs
-        olute w-full flex justify-center"
-            >
+        <div className="absolute w-full flex justify-center">
               <input
                 type="text"
                 className="w-1/2 p-2 absolute z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80"
