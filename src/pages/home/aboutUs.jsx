@@ -10,9 +10,8 @@ export default function AboutUs() {
         {/* Our Vision */}
         <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg mb-8 w-[40rem] mx-auto">
           <img
-            src="https://via.placeholder.com/300"
-            alt="Beauty care team"
-            className="w-40 h-40 object-cover rounded-full mb-6"
+            src="/logo3.png"
+            className="w-48 h-48 object-cover rounded-full mb-6"
           />
           <h3 className="text-xl font-semibold text-secondary mb-2">Our Vision</h3>
           <p className="text-center text-gray-600">
@@ -23,9 +22,8 @@ export default function AboutUs() {
         {/* Our Products */}
         <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg mb-8 w-[40rem] mx-auto">
           <img
-            src="https://via.placeholder.com/300"
-            alt="Beauty care products"
-            className="w-40 h-40 object-cover rounded-full mb-6"
+            src="/logo4.png"
+            className="w-48 h-48 object-cover rounded-full mb-6"
           />
           <h3 className="text-xl font-semibold text-secondary mb-2">Our Products</h3>
           <p className="text-center text-gray-600">
