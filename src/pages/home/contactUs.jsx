@@ -146,20 +146,20 @@ export default function ContactUs() {
           <p className="text-gray-500">No messages yet.</p>
         ) : (
           <div>
-            <table className="w-3/7 mx-auto border border-gray-400 border-collapse">
+            <table className="w-full mx-auto border border-gray-400 border-collapse">
               <thead>
                 <tr className="bg-gray-200 border border-gray-400">
-                  <th className="border border-gray-400 p-2">Name</th>
-                  <th className="border border-gray-400 p-2">Email</th>
-                  <th className="border border-gray-400 p-2">Message</th>
+                  <th className="px-6 py-3 border border-gray-400">Name</th>
+                  <th className="px-6 py-3 border border-gray-400">Email</th>
+                  <th className="px-6 py-3 border border-gray-400">Message</th>
                 </tr>
               </thead>
               <tbody>
                 {messages.map((msg, index) => (
                   <tr key={index} className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400">
-                    <td className="p-2 border border-gray-400">{msg.name}</td>
-                    <td className="p-2 border border-gray-400">{msg.email}</td>
-                    <td className="p-2 border border-gray-400">{msg.message}</td>
+                    <td className="px-6 py-4 border border-gray-400">{msg.name}</td>
+                    <td className="px-6 py-4 border border-gray-400">{msg.email}</td>
+                    <td className="px-6 py-4 border border-gray-400">{msg.message}</td>
                   </tr>
                 ))}
               </tbody>

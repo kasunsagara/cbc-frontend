@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FaEye } from "react-icons/fa";
 
 export default function MyOrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -32,7 +33,7 @@ export default function MyOrdersPage() {
     return orderedItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  const handleRowClick = (order) => {
+  const handleViewDetails = (order) => {
     setSelectedOrder(order);
   };
 
@@ -41,41 +42,51 @@ export default function MyOrdersPage() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center p-4">
+    <div className="w-full h-full overflow-y-scroll flex flex-col items-center p-4">
       <h1 className="text-2xl font-bold mb-4">My Orders</h1>
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-3/5 mx-auto border border-gray-400 border-collapse">
-          <thead>
-            <tr className="bg-gray-200 border border-gray-400">
-              <th className="border border-gray-400 p-2">Order ID</th>
-              <th className="border border-gray-400 p-2">Status</th>
-              <th className="border border-gray-400 p-2">Date</th>
-              <th className="border border-gray-400 p-2">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr 
-                key={order.orderId}
-                className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400"
-                onClick={() => handleRowClick(order)}
-              >
-                <td className="p-2 border border-gray-400">{order.orderId}</td>
-                <td className="p-2 border border-gray-400">{order.status}</td>
-                <td className="p-2 border border-gray-400">
-                  {new Date(order.date).toLocaleDateString()}
-                </td>
-                <td className="p-2 border border-gray-400">
-                  LKR {calculateTotal(order.orderedItems).toFixed(2)}
-                </td>
+        <div className="w-1/2 flex justify-center">
+          <table className="w-full mx-auto border border-gray-400 border-collapse">
+            <thead>
+              <tr className="bg-gray-200 border border-gray-400">
+                <th className="px-6 py-3 border border-gray-400">Order ID</th>
+                <th className="px-6 py-3 border border-gray-400">Status</th>
+                <th className="px-6 py-3 border border-gray-400">Date</th>
+                <th className="px-6 py-3 border border-gray-400">Total</th>
+                <th className="px-6 py-3 border border-gray-400">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr 
+                  key={order.orderId}
+                  className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400"
+                >
+                  <td className="px-6 py-4 border border-gray-400">{order.orderId}</td>
+                  <td className="px-6 py-4 border border-gray-400">{order.status}</td>
+                  <td className="px-6 py-4 border border-gray-400">
+                    {new Date(order.date).toLocaleDateString()}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-400">
+                    LKR {calculateTotal(order.orderedItems).toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 border border-gray-400">
+                  <a
+                    className="text-green-500 hover:text-green-700 focus:outline-none"
+                    onClick={() => handleViewDetails(order)}
+                  >
+                    <FaEye />
+                  </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
       {/* Modal */}
       {selectedOrder && (
@@ -83,20 +94,20 @@ export default function MyOrdersPage() {
           <div className="bg-primary w-full max-w-4xl p-4 rounded-lg shadow-lg">
             <h2 className="text-lg font-bold mb-4 text-secondary">Order Details</h2>
             <p>
-            <span className="font-semibold">Order ID:</span> {selectedOrder.orderId}
+              <span className="font-semibold">Order ID:</span> {selectedOrder.orderId}
             </p>
             <p>
-            <span className="font-semibold">Status:</span> {selectedOrder.status}
+              <span className="font-semibold">Status:</span> {selectedOrder.status}
             </p>
             <p>
-            <span className="font-semibold">Date:</span>{" "}
-            {new Date(selectedOrder.date).toLocaleString()}
+              <span className="font-semibold">Date:</span>{" "}
+              {new Date(selectedOrder.date).toLocaleString()}
             </p>
             <p>
-            <span className="font-semibold">Name:</span> {selectedOrder.name}
+              <span className="font-semibold">Name:</span> {selectedOrder.name}
             </p>
             <p>
-            <span className="font-semibold">Address:</span> {selectedOrder.address}
+              <span className="font-semibold">Address:</span> {selectedOrder.address}
             </p>
             <p>
               <span className="font-semibold">Phone:</span> {selectedOrder.phone}
@@ -112,7 +123,7 @@ export default function MyOrdersPage() {
                   className="p-4 rounded-md"
                   style={{
                     backgroundColor: "#FDDC5C",
-                    height: "auto", // Allow for flexible height based on content
+                    height: "auto",
                   }}
                 >
                   <p>

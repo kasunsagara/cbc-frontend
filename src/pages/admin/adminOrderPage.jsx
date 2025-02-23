@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FiEye} from "react-icons/fi";
+import { FaEye } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 
 export default function AdminOrdersPage() {
@@ -114,7 +114,7 @@ export default function AdminOrdersPage() {
                     className="text-green-500 hover:text-green-700 focus:outline-none"
                     onClick={() => handleViewDetails(order)}
                   >
-                    <FiEye />
+                    <FaEye />
                   </a>
                   <a
                     className="text-blue-500 hover:text-blue-700 focus:outline-none"
