@@ -49,44 +49,39 @@ export default function MyOrdersPage() {
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <div className="w-1/2 flex justify-center">
-          <table className="w-full mx-auto border border-gray-400 border-collapse">
-            <thead>
-              <tr className="bg-gray-200 border border-gray-400">
-                <th className="px-6 py-3 border border-gray-400">Order ID</th>
-                <th className="px-6 py-3 border border-gray-400">Status</th>
-                <th className="px-6 py-3 border border-gray-400">Date</th>
-                <th className="px-6 py-3 border border-gray-400">Total</th>
-                <th className="px-6 py-3 border border-gray-400">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr 
-                  key={order.orderId}
-                  className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400"
-                >
-                  <td className="px-6 py-4 border border-gray-400">{order.orderId}</td>
-                  <td className="px-6 py-4 border border-gray-400">{order.status}</td>
-                  <td className="px-6 py-4 border border-gray-400">
-                    {new Date(order.date).toLocaleDateString()}
-                  </td>
-                  <td className="px-6 py-4 border border-gray-400">
-                    LKR {calculateTotal(order.orderedItems).toFixed(2)}
-                  </td>
-                  <td className="px-6 py-4 border border-gray-400">
-                  <a
-                    className="text-green-500 hover:text-green-700 focus:outline-none"
-                    onClick={() => handleViewDetails(order)}
-                  >
-                    <FaEye />
-                  </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <div className="w-1/2 bg-white shadow-lg rounded-lg">
+                <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
+                  <thead>
+                    <tr className="bg-secondary text-white">
+                      <th className="px-6 py-3">Order ID</th>
+                      <th className="px-6 py-3">Status</th>
+                      <th className="px-6 py-3">Date</th>
+                      <th className="px-6 py-3">Total</th>
+                      <th className="px-6 py-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {orders.map((order) => (
+                      <tr key={order.orderId} className={`hover:bg-gray-100 transition-all ${
+                        order.orderId % 2 === 0 ? "bg-white" : "bg-white"
+                      }`}>
+                        <td className="px-6 py-4">{order.orderId}</td>
+                        <td className="px-6 py-4">{order.status}</td>
+                        <td className="px-6 py-4">{new Date(order.date).toLocaleDateString()}</td>
+                        <td className="px-6 py-4">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
+                        <td className="px-6 py-4 flex gap-2">
+                          <a
+                            className="text-green-500 hover:text-green-700 focus:outline-none"
+                            onClick={() => handleViewDetails(order)}
+                          >
+                            <FaEye />
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
       )}
       {/* Modal */}
       {selectedOrder && (

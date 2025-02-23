@@ -48,8 +48,8 @@ export default function AdminCustomersPage() {
       <div className="flex justify-between items-center mb-6">
       <h1 className="text-3xl font-bold text-gray-800">Admin Customers</h1>
       </div>
-      <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
-        <table className="w-full text-left border-collapse">
+      <div className="bg-white shadow-lg rounded-lg">
+        <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-secondary text-white">
               <th className="px-6 py-3">Profile Picture</th>

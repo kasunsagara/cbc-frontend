@@ -34,8 +34,8 @@ export default function AdminCustomersPage() {
       </div>
 
       {productsLoaded ? (
-        <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-white shadow-lg rounded-lg">
+          <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-secondary text-white">
                 <th className="px-6 py-3">Product ID</th>

@@ -145,24 +145,24 @@ export default function ContactUs() {
         {messages.length === 0 ? (
           <p className="text-gray-500">No messages yet.</p>
         ) : (
-          <div>
-            <table className="w-full mx-auto border border-gray-400 border-collapse">
+          <div className="bg-white shadow-lg rounded-lg">
+            <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
               <thead>
-                <tr className="bg-gray-200 border border-gray-400">
-                  <th className="px-6 py-3 border border-gray-400">Name</th>
-                  <th className="px-6 py-3 border border-gray-400">Email</th>
-                  <th className="px-6 py-3 border border-gray-400">Message</th>
+                <tr className="bg-secondary text-white">
+                  <th className="px-6 py-3">Name</th>
+                  <th className="px-6 py-3">Email</th>
+                  <th className="px-6 py-3">Message</th>
                 </tr>
               </thead>
               <tbody>
                 {messages.map((msg, index) => (
-                  <tr key={index} className="hover:bg-accent hover:text-white cursor-pointer border border-gray-400">
-                    <td className="px-6 py-4 border border-gray-400">{msg.name}</td>
-                    <td className="px-6 py-4 border border-gray-400">{msg.email}</td>
-                    <td className="px-6 py-4 border border-gray-400">{msg.message}</td>
+                  <tr key={index} className="hover:bg-gray-100">
+                    <td className="px-6 py-4">{msg.name}</td>
+                    <td className="px-6 py-4">{msg.email}</td>
+                    <td className="px-6 py-4">{msg.message}</td>
                   </tr>
-                ))}
-              </tbody>
+                  ))}
+                </tbody>
             </table>
           </div>
         )}
