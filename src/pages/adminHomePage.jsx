@@ -1,5 +1,6 @@
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
-import { FaChartLine, FaBox, FaShoppingCart, FaUsers, FaComments } from "react-icons/fa";
+import { FaHome, FaChartLine, FaBox, FaShoppingCart, FaUsers, FaComments, FaStar } from "react-icons/fa";
+import AdminHome from "./admin/adminHome";
 import AdminProductsPage from "./admin/adminProductsPage";
 import AddProductForm from "./admin/addProductForm";
 import EditProductForm from "./admin/editProductForm";
@@ -49,6 +50,14 @@ export default function AdminHomePage() {
 
                 <Link 
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    to="/admin"
+                >
+                    <FaHome size={20} />
+                    <span className="text-lg">Home</span>
+                </Link>
+
+                <Link 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/dashboard"
                 >
                     <FaChartLine size={20} />
@@ -86,22 +95,20 @@ export default function AdminHomePage() {
                     <FaComments size={20} />
                     <span className="text-lg">Messages</span>
                 </Link>
+                <Link 
+                    className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
+                    to="/"    
+                >
+                    <FaStar size={20} />
+                    <span className="text-lg">Customer View</span>
+                </Link>
             </div>
 
             {/* Main Content */}
             <div className="w-[80%] h-screen bg-primary p-6 overflow-auto">
                 <div className="p-6 rounded-lg shadow-inner bg-secondary backdrop-filter backdrop-blur-lg bg-opacity-30">
                 {user!=null&&<Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <div className="w-full h-full flex justify-center items-center">
-                                    <h1 className="text-5xl font-extrabold text-white">
-                                        Welcome to the Admin Page
-                                    </h1>
-                                </div>
-                            }
-                        />
+                        <Route path="/" element={<AdminHome/>} />
                         <Route path="/dashboard" element={<AdminDashboardPage/>} />
                         <Route path="/products" element={<AdminProductsPage />} />
                         <Route path="/products/addProduct" element={<AddProductForm />} />

@@ -3,6 +3,7 @@ import Header from '../components/header';
 import LoginPage from './loginPage';
 import SignupPage from './signupPage';
 import ProductOverview from './home/productOverview';
+import Home from './home/home';
 import ProductPage from './home/product';
 import Cart from './home/cart';
 import ShippingPage from './home/shipping';
@@ -16,7 +17,7 @@ export default function HomePage() {
       <Header />
       <div className='w-full h-[calc(100vh-100px)] '>
         <Routes path="/*">
-          <Route path="/" element={<h1>Home Page</h1>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/products" element={<ProductPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/signup" element={<SignupPage/>} />

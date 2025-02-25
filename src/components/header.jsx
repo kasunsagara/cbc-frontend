@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
-import { FiLogIn } from 'react-icons/fi';
-import { AiOutlineUserAdd } from 'react-icons/ai';
+import { FaHome, FaShoppingBag, FaInfoCircle, FaPhone, FaShoppingCart, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 export default function Header() {
     return (
@@ -15,21 +13,21 @@ export default function Header() {
             />
             
             {/* Navigation Links */}
-            <nav className="flex items-center gap-24 ml-auto">
-                <Link to="/" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    Home
+            <nav className="flex items-center gap-20 ml-auto">
+                <Link to="/" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                <FaHome /> Home
                 </Link>
 
-                <Link to="/products" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    Products
+                <Link to="/products" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                <FaShoppingBag /> Products
                 </Link>
 
-                <Link to="/about" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    About Us
+                <Link to="/about" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                <FaInfoCircle /> About Us
                 </Link>
 
-                <Link to="/contact" className="text-secondary font-bold text-xl hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    Contact Us
+                <Link to="/contact" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
+                <FaPhone /> Contact Us
                 </Link>
 
                 <Link to="/cart" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
@@ -37,11 +35,11 @@ export default function Header() {
                 </Link>
 
                 <Link to="/login" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    <FiLogIn /> Login
+                    <FaSignInAlt /> Login
                 </Link>
                 
                 <Link to="/signup" className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200">
-                    <AiOutlineUserAdd /> Signup
+                    <FaUserPlus /> Signup
                 </Link>
             </nav>
         </header>
