@@ -152,7 +152,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <footer className="bg-primary w-full py-8 mt-16 shadow-lg shadow-black">
+            <footer className="bg-primary w-full py-8 mt-12 shadow-lg shadow-black">
                 <div className="w-3/4 mx-auto flex flex-wrap justify-between items-center">
 
                     <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
