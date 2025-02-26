@@ -61,25 +61,25 @@ export default function ContactUs() {
         <h3 className="text-2xl font-semibold text-accent mb-4 flex flex-col items-center">Reach Out to Us</h3>
         <div className="flex items-center space-x-3">
           <FaPhoneAlt className="text-secondary" />
-          <span>0771670585</span>
+          <span className="text-gray-900">0771670585</span>
         </div>
         <div className="flex items-center space-x-3">
           <FaEnvelope className="text-secondary" />
-          <span>kasunsagara689@gmail.com</span>
+          <span className="text-gray-900">kasunsagara689@gmail.com</span>
         </div>
         <div className="flex items-center space-x-3">
           <FaMapMarkerAlt className="text-secondary" />
-          <span>74 A, Ridivita, Hiramadagama, Kahawaththa</span>
+          <span className="text-gray-900">74 A, Ridivita, Hiramadagama, Kahawaththa</span>
         </div>
         <div className="flex items-center space-x-3">
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
-            <FaWhatsapp />
+          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+            <FaWhatsapp className="text-secondary"/>
             <span>WhatsApp</span>
           </a>
         </div>
         <div className="flex items-center space-x-3">
-          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-secondary hover:text-accent">
-            <FaFacebook />
+          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+            <FaFacebook className="text-secondary"/>
             <span>Facebook</span>
           </a>
         </div>

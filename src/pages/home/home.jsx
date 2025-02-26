@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
     const navigate = useNavigate();
@@ -150,6 +151,48 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+            <footer className="bg-primary w-full py-8 mt-16 shadow-lg shadow-black">
+                <div className="w-3/4 mx-auto flex flex-wrap justify-between items-center">
+
+                    <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
+                    <h4 className="text-2xl font-semibold text-secondary text-center mb-4">Get in Touch</h4>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+                        <FaWhatsapp className="text-2xl text-secondary" />
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+                        <FaFacebook className="text-2xl text-secondary" />
+                        <span>Facebook</span>
+                    </a>
+                    </div>
+
+                    <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
+                    <h4 className="text-2xl font-semibold text-secondary text-center mb-4">Explore More</h4>
+                    <a href="/about" className="text-gray-600 hover:text-accent transition duration-300">About Us</a>
+                    <a href="/contact" className="text-gray-600 hover:text-accent transition duration-300">Contact Us</a>
+                    </div>
+
+                    <div className="w-full md:w-1/3 mt-4 md:mt-0">
+                    <h4 className="text-2xl font-semibold text-secondary text-center mb-4">Find Our Location</h4>
+                    <div className="flex justify-center">
+                        <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.239780932599!2d144.9537363153187!3d-37.81362797975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4412997c89%3A0x5045675218ce6e0!2sKSW%20Beauty%20Care!5e0!3m2!1sen!2sau!4v1611073005035!5m2!1sen!2sau" 
+                        width="350" 
+                        height="350" 
+                        allowFullScreen="" 
+                        loading="lazy"
+                        className="border-0 rounded-lg"
+                        ></iframe>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div className="text-center mt-6 text-gray-600">
+                    <p>© 2025 KSW Beauty Care. All Rights Reserved.</p>
+                </div>
+            </footer>
         </div>
     );
 }
