@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaHome, FaShoppingBag, FaInfoCircle, FaPhone, FaShoppingCart, FaSignInAlt, FaUserPlus, FaUserCircle, FaUser, FaSignOutAlt, FaTimes } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
+  const profileRef = useRef(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -38,7 +41,19 @@ export default function Header() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setUserData(null);
+    setShowProfileDropdown(false);
   }
+
+  // Hide dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowProfileDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="bg-primary w-full h-[100px] flex items-center shadow-lg px-6 lg:px-12">
@@ -77,38 +92,57 @@ export default function Header() {
         </Link>
 
         {isLoggedIn ? (
-          <div className="relative group">
-            <button className="text-secondary font-bold text-xl flex items-center gap-2">
+          <div className="relative" ref={profileRef}>
+            <button
+              onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+              className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
+            >
               <FaUserCircle /> Profile
             </button>
-            <div className="absolute right-0 mt-2 bg-white shadow-md rounded-lg p-2 opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col">
-              <button
-                onClick={() => setShowDetailsModal(!showDetailsModal)}
-                className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md"
+
+            {showProfileDropdown && (
+              <div
+                className="absolute right-0 mt-2 bg-white shadow-md rounded-lg p-2 w-48 z-50"
+                onMouseLeave={() => setShowProfileDropdown(false)}
               >
-                <FaUser /> Account
-              </button>
-              {showDetailsModal && userData && (
-                <div className="absolute top-full right-0 mt-2 bg-white p-6 rounded-lg shadow-lg w-80 z-50 border border-gray-300">
-                  <button 
+                <button
+                  onClick={() => setShowDetailsModal(true)}
+                  className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md w-full text-left"
+                >
+                  <FaUser /> Account
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md w-full text-left"
+                >
+                  <FaSignOutAlt /> Logout
+                </button>
+              </div>
+            )}
+
+            {showDetailsModal && userData && (
+              <div className="absolute top-full right-0 mt-2 bg-white p-6 rounded-lg shadow-lg w-80 z-50">
+                <button
                   onClick={() => setShowDetailsModal(false)}
-                  className="absolute top-2 right-2 text-gray-600 hover:text-gray-900" 
-                  >
-                    <FaTimes size={20} />
-                  </button>
-                  <h2 className="text-xl font-bold mb-4 text-secondary">User Details</h2>
-                  <p className="text-gray-700"><strong>Name:</strong> {userData.name}</p>
-                  <p className="text-gray-700"><strong>Email:</strong> {userData.email}</p>
-                  <p className="text-gray-700"><strong>Joined:</strong> {new Date(userData.createdAt).toLocaleDateString()}</p>
-                </div>
-              )}
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md"
-              >
-                <FaSignOutAlt /> Logout
-              </button>
-            </div>
+                  className="absolute top-2 right-2 text-gray-900 hover:text-gray-600"
+                >
+                  <FaTimes size={20} />
+                </button>
+                <h2 className="text-xl font-bold mb-4 text-secondary">User Details</h2>
+                <p className="text-gray-700">
+                  <strong>Profile Picture:</strong>
+                </p>
+                <img
+                  src={userData.profilePicture}
+                  alt="Profile"
+                  className="w-32 h-32 rounded-full mx-auto"
+                />
+                <p className="text-gray-700"><strong>Full Name:</strong> {`${userData.firstName} ${userData.lastName}`}</p>
+                <p className="text-gray-700"><strong>Email:</strong> {userData.email}</p>
+                <p className="text-gray-700"><strong>User Type:</strong> {userData.type}</p>
+                <p className="text-gray-700"><strong>Account Status:</strong> {userData.isBlocked ? "Blocked" : "Active"}</p>
+              </div>
+            )}
           </div>
         ) : (
           <>
