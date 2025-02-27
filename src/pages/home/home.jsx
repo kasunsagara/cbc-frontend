@@ -152,7 +152,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <footer className="relative bg-primary w-full py-8 mt-12 shadow-lg shadow-black before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-gradient-to-b before:from-gray-400/20 before:to-transparent">
+            <footer className="relative bg-primary w-full py-8 mt-12 shadow-lg shadow-black before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-gradient-to-b before:from-gray-400/20 before:to-transparent">
                 <div className="w-3/4 mx-auto flex flex-wrap justify-between items-center">
 
                     <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
