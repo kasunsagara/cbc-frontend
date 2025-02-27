@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { FaHome, FaShoppingBag, FaInfoCircle, FaPhone, FaShoppingCart, FaSignInAlt, FaUserPlus, FaUserCircle, FaUser, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaShoppingBag, FaInfoCircle, FaPhone, FaShoppingCart, FaSignInAlt, FaUserPlus, FaUserCircle, FaUser, FaSignOutAlt, FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -14,7 +14,7 @@ export default function Header() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-          return; // Don't redirect to login if no token, just skip fetching user data
+          return; // Don't fetch if no token is found
         }
 
         const response = await axios.get(import.meta.env.VITE_BACKEND_URL + "/api/users", {
@@ -24,10 +24,10 @@ export default function Header() {
         });
 
         setUserData(response.data);
-        setIsLoggedIn(true); // Set the user as logged in after successful data fetch
+        setIsLoggedIn(true);
       } catch (error) {
         console.error("Error fetching user data:", error);
-        setIsLoggedIn(false); // Set the state to false if there was an error fetching user data
+        setIsLoggedIn(false);
       }
     };
 
@@ -36,9 +36,8 @@ export default function Header() {
 
   function handleLogout() {
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setIsLoggedIn(false); // Update state when user logs out
-    setUserData(null); // Clear user data as well
+    setIsLoggedIn(false);
+    setUserData(null);
   }
 
   return (
@@ -52,28 +51,24 @@ export default function Header() {
         >
           <FaHome /> Home
         </Link>
-
         <Link
           to="/products"
           className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
         >
           <FaShoppingBag /> Products
         </Link>
-
         <Link
           to="/about"
           className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
         >
           <FaInfoCircle /> About Us
         </Link>
-
         <Link
           to="/contact"
           className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
         >
           <FaPhone /> Contact Us
         </Link>
-
         <Link
           to="/cart"
           className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
@@ -82,26 +77,29 @@ export default function Header() {
         </Link>
 
         {isLoggedIn ? (
-          <div
-            className="relative group"
-            onMouseLeave={() => setShowDetails(false)} // Close details when mouse leaves
-          >
+          <div className="relative group">
             <button className="text-secondary font-bold text-xl flex items-center gap-2">
               <FaUserCircle /> Profile
             </button>
             <div className="absolute right-0 mt-2 bg-white shadow-md rounded-lg p-2 opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col">
               <button
-                onClick={() => setShowDetails(!showDetails)}
+                onClick={() => setShowDetailsModal(!showDetailsModal)}
                 className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md"
               >
                 <FaUser /> Account
               </button>
-              {showDetails && userData && (
-                <div className="bg-gray-100 p-2 rounded-md mt-2">
-                  <p className="text-sm text-gray-600">{`${userData.firstName} ${userData.lastName}`}</p>
-                  <p className="text-sm text-gray-600">{userData.email}</p>
-                  <p className="text-sm text-gray-600">{userData.type}</p>
-                  <p className="text-sm text-gray-600">{userData.isBlocked ? "Blocked" : "Active"}</p>
+              {showDetailsModal && userData && (
+                <div className="absolute top-full right-0 mt-2 bg-white p-6 rounded-lg shadow-lg w-80 z-50 border border-gray-300">
+                  <button 
+                  onClick={() => setShowDetailsModal(false)}
+                  className="absolute top-2 right-2 text-gray-600 hover:text-gray-900" 
+                  >
+                    <FaTimes size={20} />
+                  </button>
+                  <h2 className="text-xl font-bold mb-4 text-secondary">User Details</h2>
+                  <p className="text-gray-700"><strong>Name:</strong> {userData.name}</p>
+                  <p className="text-gray-700"><strong>Email:</strong> {userData.email}</p>
+                  <p className="text-gray-700"><strong>Joined:</strong> {new Date(userData.createdAt).toLocaleDateString()}</p>
                 </div>
               )}
               <button
@@ -120,7 +118,6 @@ export default function Header() {
             >
               <FaSignInAlt /> Login
             </Link>
-
             <Link
               to="/signup"
               className="text-secondary font-bold text-xl flex items-center gap-2 hover:border-b-4 hover:border-b-accent transition-all duration-200"
