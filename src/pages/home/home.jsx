@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
@@ -157,11 +157,11 @@ export default function Home() {
 
                     <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
                     <h4 className="text-2xl font-semibold text-secondary text-center mb-4">Get in Touch</h4>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+                    <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
                         <FaWhatsapp className="text-2xl text-secondary" />
                         <span>WhatsApp</span>
                     </a>
-                    <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+                    <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
                         <FaFacebook className="text-2xl text-secondary" />
                         <span>Facebook</span>
                     </a>
@@ -169,8 +169,8 @@ export default function Home() {
 
                     <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
                     <h4 className="text-2xl font-semibold text-secondary text-center mb-4">Explore More</h4>
-                    <a href="/about" className="text-gray-600 hover:text-accent transition duration-300">About Us</a>
-                    <a href="/contact" className="text-gray-600 hover:text-accent transition duration-300">Contact Us</a>
+                    <Link to="/about" className="text-gray-600 hover:text-accent transition duration-300">About Us</Link>
+                    <Link to="/contact" className="text-gray-600 hover:text-accent transition duration-300">Contact Us</Link>
                     </div>
 
                     <div className="w-full md:w-1/3 mt-4 md:mt-0">

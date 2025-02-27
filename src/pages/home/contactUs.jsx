@@ -72,13 +72,13 @@ export default function ContactUs() {
           <span className="text-gray-900">74 A, Ridivita, Hiramadagama, Kahawaththa</span>
         </div>
         <div className="flex items-center space-x-3">
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
             <FaWhatsapp className="text-secondary"/>
             <span>WhatsApp</span>
           </a>
         </div>
         <div className="flex items-center space-x-3">
-          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-600 hover:text-accent transition duration-300">
             <FaFacebook className="text-secondary"/>
             <span>Facebook</span>
           </a>
