@@ -91,6 +91,35 @@ export default function Home() {
                 </div>
             </div>
 
+            <div className="w-full flex flex-col items-center py-16 bg-primary">
+                <h2 className="text-4xl font-bold text-secondary mb-6">Things to Be Careful About</h2>
+                <div className="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Patch Test First</h3>
+                        <p className="text-gray-600 mt-2">Always perform a patch test before full application to avoid allergic reactions</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Avoid Eye Contact</h3>
+                        <p className="text-gray-600 mt-2">Keep products away from the eyes to prevent irritation or discomfort</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Store Properly</h3>
+                        <p className="text-gray-600 mt-2">Keep in a cool, dry place to maintain product effectiveness and longevity</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Sun Sensitivity</h3>
+                        <p className="text-gray-600 mt-2">Some ingredients may increase sun sensitivity; use sunscreen daily</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Discontinue if irritated</h3>
+                        <p className="text-gray-600 mt-2">Stop using immediately if redness, itching, or irritation develops</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+                        <h3 className="text-2xl font-semibold text-accent">Check Ingredients</h3>
+                        <p className="text-gray-600 mt-2">Ensure ingredients align with your skin type and avoid known allergens</p>
+                    </div>
+                </div>
+            </div>
             
             <div className="w-full flex flex-col items-center py-16 bg-primary">
             <h2 className="text-4xl font-bold text-secondary mb-6">Benefits of Using Our Products</h2>
@@ -120,36 +149,6 @@ export default function Home() {
                 <p className="text-gray-600 mt-2">Lightweight and fast-absorbing for all skin types.</p>
                 </div>
             </div>
-            </div>
-
-            <div className="w-full flex flex-col items-center py-16 bg-primary">
-                <h2 className="text-4xl font-bold text-secondary mb-6">Benefits of Protecting Your Skin</h2>
-                <div className="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Prevents Premature Aging</h3>
-                        <p className="text-gray-600 mt-2">Protecting your skin from sun damage helps keep it youthful and wrinkle-free for longer</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Reduces Risk of Skin Cancer</h3>
-                        <p className="text-gray-600 mt-2">Proper skin protection minimizes your exposure to harmful UV rays, reducing cancer risks</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Maintains Even Skin Tone</h3>
-                        <p className="text-gray-600 mt-2">Shielding your skin helps prevent dark spots, discoloration, and uneven skin tone</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Boosts Hydration</h3>
-                        <p className="text-gray-600 mt-2">Protection from environmental factors helps your skin retain moisture and stay hydrated</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Supports Skin Healing</h3>
-                        <p className="text-gray-600 mt-2">By preventing damage, your skin has a better ability to heal and regenerate</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                        <h3 className="text-2xl font-semibold text-accent">Improves skin health</h3>
-                        <p className="text-gray-600 mt-2">Regular protection promotes a balanced, healthy complexion and strengthens your skin's natural barrier</p>
-                    </div>
-                </div>
             </div>
 
             <footer className="relative bg-primary w-full py-8 mt-12 shadow-lg shadow-black before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-gradient-to-b before:from-gray-400/20 before:to-transparent">
