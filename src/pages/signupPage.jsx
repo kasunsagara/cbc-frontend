@@ -59,27 +59,26 @@ export default function SignupPage() {
       });
   }
 
-  // Google Signup Logic
   const googleSignup = useGoogleLogin({
     onSuccess: (res) => {
-      axios
-        .post(import.meta.env.VITE_BACKEND_URL + "/api/users/google", {
-          token: res.access_token,
-        })
-        .then((res) => {
-          if (res.data.message === "User created") {
-            toast.success("Your account has been created! Please login with Google.");
-            window.location.href = "/login"; // Redirect to login page
-          } else {
-            toast.error("An account with this email may already exist.");
-          }
-        })
-        .catch((err) => {
-          toast.error("Google signup failed. Please try again.");
-          console.error(err);
-        });
-    },
-  });
+        axios
+            .post(import.meta.env.VITE_BACKEND_URL + "/api/users/google", {
+                token: res.access_token
+            })
+            .then((response) => {
+                if (response.data.message === "User created") {
+                    toast.success("Your account has been created! Please log in with Google.");
+                    window.location.href = response.data.redirect; // Redirect to login
+                } else {
+                    toast.error(response.data.message);
+                }
+            })
+            .catch((error) => {
+                console.error("Google signup error:", error);
+                toast.error("Google signup failed. Please try again.");
+            });
+    }
+});
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
@@ -185,6 +184,13 @@ export default function SignupPage() {
             Sign Up
           </button>
 
+          <div className="mt-6 text-center">
+          <span className="text-sm text-gray-600">Already have an account?</span>
+          <Link to="/login" className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200">
+            Login
+          </Link>
+          </div>
+
           <div className="relative flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500 font-medium">OR</span>
@@ -201,12 +207,6 @@ export default function SignupPage() {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
-          <span className="text-sm text-gray-600">Already have an account?</span>
-          <Link to="/login" className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200">
-            Login
-          </Link>
-        </div>
       </div>
     </div>
   );

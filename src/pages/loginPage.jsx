@@ -6,29 +6,6 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { BsGoogle } from 'react-icons/bs';
 
 export default function LoginPage() {
-
-  const googleLogin = useGoogleLogin({
-    onSuccess: (res)=>{
-      console.log(res)
-      axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/google",{
-        token : res.access_token
-      }).then(
-        (res)=>{
-          if(res.data.message == "User created"){
-            toast.success("Your account is created now you can login via google.")
-          }else{
-            localStorage.setItem("token",res.data.token)
-            if(res.data.user.type == "admin"){
-              window.location.href = "/admin"
-            }else{
-              window.location.href = "/"
-            }
-          }
-        }
-      )
-    }
-  })
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordInputRef = useRef(null);
@@ -49,6 +26,7 @@ export default function LoginPage() {
           toast.error(res.data.message);
           return;
         }
+        toast.success('Login successfully!');
 
         localStorage.setItem('token', res.data.token);
         if (res.data.user.type == 'admin') {
@@ -58,6 +36,35 @@ export default function LoginPage() {
         }
       });
   }
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: (res) => {
+        console.log(res);
+        axios
+            .post(import.meta.env.VITE_BACKEND_URL + "/api/users/googleLogin", {
+                token: res.access_token
+            })
+            .then((response) => {
+                if (response.data.message === "User logged in") {
+                    localStorage.setItem("token", response.data.token);
+                    toast.success("Login via Google successful!");
+
+                    if (response.data.user.type === "admin") {
+                        window.location.href = "/admin";
+                    } else {
+                        window.location.href = "/";
+                    }
+                } else {
+                    toast.error("Login failed. Please sign up first.");
+                }
+            })
+            .catch((error) => {
+                console.error("Google login error:", error);
+                toast.error("An error occurred during Google login.");
+            });
+    }
+});
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
@@ -106,6 +113,16 @@ export default function LoginPage() {
             Login
           </button>
 
+          <div className="mt-6 text-center">
+          <span className="text-sm text-gray-600">Don’t have an account?</span>
+          <Link
+            to="/signup"
+            className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
+          >
+            Register
+          </Link>
+          </div>
+
           <div className="relative flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500 font-medium">OR</span>
@@ -121,15 +138,7 @@ export default function LoginPage() {
             Login with google
           </button>
         </form>
-        <div className="mt-6 text-center">
-          <span className="text-sm text-gray-600">Don’t have an account?</span>
-          <Link
-            to="/signup"
-            className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
-          >
-            Register
-          </Link>
-        </div>
+
       </div>
     </div>
   );
