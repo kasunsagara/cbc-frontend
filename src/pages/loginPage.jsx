@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BsGoogle } from 'react-icons/bs';
-import { clearCart } from '../utils/cartFunction'; // Import clearCart function
+import { clearCart } from '../utils/cartFunction';  // Import clearCart function
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
