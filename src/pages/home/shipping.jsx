@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import CartCard from "../../components/cartCard";
+import ShippingCard from "../../components/shippingCard";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -103,7 +103,7 @@ export default function ShippingPage() {
         </thead>
         <tbody>
           {cart.map((item) => (
-            <CartCard key={item.productId} productId={item.productId} qty={item.qty} />
+            <ShippingCard key={item.productId} productId={item.productId} qty={item.qty} />
           ))}
         </tbody>
       </table>

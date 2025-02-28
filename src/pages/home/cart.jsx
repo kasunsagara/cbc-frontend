@@ -11,28 +11,26 @@ export default function Cart() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCart(loadCart());
-    console.log(loadCart());
+    fetchCartData();
+  }, []);
+
+  function fetchCartData() {
+    const updatedCart = loadCart();
+    setCart(updatedCart);
     axios
       .post(import.meta.env.VITE_BACKEND_URL + "/api/orders/quote", {
-        orderedItems: loadCart(),
+        orderedItems: updatedCart,
       })
       .then((res) => {
-        console.log(loadCart());
-        console.log(res.data);
         if (res.data.total != null) {
           setTotal(res.data.total);
           setLabeledTotal(res.data.labeledTotal);
         }
       });
-  }, []);
+  }
 
-  function onOrderCheckOutClick() {
-    navigate("/shipping", {
-      state: {
-        items: loadCart(),
-      },
-    });
+  function handleItemDelete() {
+    fetchCartData(); // Refresh cart after deletion
   }
 
   return (
@@ -46,11 +44,17 @@ export default function Cart() {
             <th className="border border-gray-400 p-2">Qty</th>
             <th className="border border-gray-400 p-2">Price</th>
             <th className="border border-gray-400 p-2">Total</th>
+            <th className="border border-gray-400 p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {cart.map((item) => (
-            <CartCard key={item.productId} productId={item.productId} qty={item.qty} />
+            <CartCard
+              key={item.productId}
+              productId={item.productId}
+              qty={item.qty}
+              onItemDelete={handleItemDelete}
+            />
           ))}
         </tbody>
       </table>
@@ -65,7 +69,7 @@ export default function Cart() {
           Grand Total: LKR. {total.toFixed(2)}
         </h1>
         <button
-          onClick={onOrderCheckOutClick}
+          onClick={() => navigate("/shipping", { state: { items: cart } })}
           className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg w-[300px] mt-4"
         >
           Checkout
