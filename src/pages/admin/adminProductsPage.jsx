@@ -64,7 +64,7 @@ export default function AdminCustomersPage() {
                   <td className="px-6 py-4 flex gap-2">
                     <button
                       title="Delete"
-                      className="text-red-500 hover:text-red-700 focus:outline-none"
+                      className="text-red-600 hover:text-red-400 focus:outline-none"
                       onClick={() => {
                         const token = localStorage.getItem("token");
 
@@ -85,7 +85,7 @@ export default function AdminCustomersPage() {
                     </button>
                     <button
                       title="Edit"
-                      className="text-blue-500 hover:text-blue-700 focus:outline-none"
+                      className="text-blue-600 hover:text-blue-400 focus:outline-none"
                       onClick={()=> {
                         navigate("/admin/products/editProduct" , {state: {product: product}})
                       }}

@@ -56,7 +56,7 @@ export default function AdminMessagePage() {
                   <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => deleteMessage(msg.name)}
-                      className="text-red-500 hover:text-red-700"
+                      className="text-red-600 hover:text-red-400"
                     >
                       <FaTrash />
                     </button>

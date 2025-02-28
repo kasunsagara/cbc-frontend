@@ -71,7 +71,7 @@ export default function MyOrdersPage() {
                         <td className="px-6 py-4">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
                         <td className="px-6 py-4 flex gap-2">
                           <a
-                            className="text-green-500 hover:text-green-700 focus:outline-none cursor-pointer"
+                            className="text-green-600 hover:text-green-400 focus:outline-none cursor-pointer"
                             onClick={() => handleViewDetails(order)}
                           >
                             <FaEye />

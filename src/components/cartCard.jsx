@@ -71,7 +71,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
             <div className="flex justify-center items-center gap-2">
               <button
                 onClick={handleDecrease}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-600 hover:text-gray-400"
               >
                 <FaMinus />
               </button>
@@ -84,7 +84,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
               />
               <button
                 onClick={handleIncrease}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-600 hover:text-gray-400"
               >
                 <FaPlus />
               </button>
@@ -99,7 +99,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
           <td className="text-center p-2 border border-gray-400">
             <button
               onClick={handleDelete}
-              className="text-red-500 hover:text-red-700"
+              className="text-red-600 hover:text-red-400"
             >
               <FaTrash />
             </button>
