@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaHome, FaShoppingBag, FaInfoCircle, FaPhone, FaShoppingCart, FaSignInAlt, FaUserPlus, FaUserCircle, FaUser, FaSignOutAlt, FaTimes } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,6 +43,7 @@ export default function Header() {
     setIsLoggedIn(false);
     setUserData(null);
     setShowProfileDropdown(false);
+    toast.success("Logged out successfully!");
   }
 
   // Hide dropdown when clicking outside
