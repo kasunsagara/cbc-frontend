@@ -2,22 +2,25 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
+import { BsGoogle } from 'react-icons/bs';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
-    email: '',
     firstName: '',
     lastName: '',
+    email: '',
     password: '',
     profilePicture: '',
   });
 
-  // References for each input field
-  const firstNameRef = useRef(null);
+  // References for input fields to handle "Enter" key navigation
   const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const profilePictureRef = useRef(null);
 
+  // Function to handle form input changes
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,30 +29,57 @@ export default function SignupPage() {
     }));
   }
 
+  // Function to handle "Enter" key navigation
   function handleKeyDown(event, nextInputRef) {
     if (event.key === 'Enter') {
       nextInputRef?.current?.focus();
     }
   }
 
+  // Function to handle standard email/password signup
   function signup() {
-    axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
-      ...formData,
-      profilePicture: formData.profilePicture || 'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
-    })
+    axios
+      .post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
+        ...formData,
+        profilePicture:
+          formData.profilePicture ||
+          'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
+      })
       .then((res) => {
         if (res.data.error) {
           toast.error(res.data.message);
           return;
         }
         toast.success('Account created successfully!');
-        window.location.href = '/login';
+        window.location.href = '/login'; // Redirect to login page after signup
       })
       .catch((err) => {
         toast.error('Something went wrong!');
         console.error(err);
       });
   }
+
+  // Google Signup Logic
+  const googleSignup = useGoogleLogin({
+    onSuccess: (res) => {
+      axios
+        .post(import.meta.env.VITE_BACKEND_URL + "/api/users/google", {
+          token: res.access_token,
+        })
+        .then((res) => {
+          if (res.data.message === "User created") {
+            toast.success("Your account has been created! Please login with Google.");
+            window.location.href = "/login"; // Redirect to login page
+          } else {
+            toast.error("An account with this email may already exist.");
+          }
+        })
+        .catch((err) => {
+          toast.error("Google signup failed. Please try again.");
+          console.error(err);
+        });
+    },
+  });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
@@ -61,23 +91,7 @@ export default function SignupPage() {
           Create an Account
         </h1>
         <form className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              onKeyDown={(e) => handleKeyDown(e, firstNameRef)}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
-              required
-            />
-          </div>
-          <div>
+        <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-800 mb-1">
               First Name
             </label>
@@ -89,7 +103,6 @@ export default function SignupPage() {
               onChange={handleChange}
               placeholder="Enter your first name"
               onKeyDown={(e) => handleKeyDown(e, lastNameRef)}
-              ref={firstNameRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
@@ -105,12 +118,29 @@ export default function SignupPage() {
               value={formData.lastName}
               onChange={handleChange}
               placeholder="Enter your last name"
-              onKeyDown={(e) => handleKeyDown(e, passwordRef)}
+              onKeyDown={(e) => handleKeyDown(e, emailRef)}
               ref={lastNameRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              onKeyDown={(e) => handleKeyDown(e, passwordRef)}
+              ref={emailRef}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+              required
+            />
+          </div>  
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-800 mb-1">
               Password
@@ -146,6 +176,7 @@ export default function SignupPage() {
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />
           </div>
+
           <button
             type="button"
             onClick={signup}
@@ -153,13 +184,26 @@ export default function SignupPage() {
           >
             Sign Up
           </button>
+
+          <div className="relative flex items-center my-4">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="mx-4 text-gray-500 font-medium">OR</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+
+          <button 
+            onClick={() => googleSignup()} 
+            type="button" 
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          >
+            <BsGoogle className="text-lg" />
+            Sign up with Google
+          </button>
         </form>
+
         <div className="mt-6 text-center">
           <span className="text-sm text-gray-600">Already have an account?</span>
-          <Link
-            to="/login"
-            className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
-          >
+          <Link to="/login" className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200">
             Login
           </Link>
         </div>
