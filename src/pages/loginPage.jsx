@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BsGoogle } from 'react-icons/bs';
+import { clearCart } from '../utils/cartFunction'; // Import clearCart function
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -17,54 +18,57 @@ export default function LoginPage() {
   }
 
   function login() {
-    axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        if (res.data.user == null) {
-          toast.error(res.data.message);
-          return;
-        }
-        toast.success('Login successfully!');
+    axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users/login", {
+      email: email,
+      password: password,
+    })
+    .then((res) => {
+      if (res.data.user == null) {
+        toast.error(res.data.message);
+        return;
+      }
+      toast.success('Login successfully!');
 
-        localStorage.setItem('token', res.data.token);
-        if (res.data.user.type == 'admin') {
-          window.location.href = '/admin';
-        } else {
-          window.location.href = '/';
-        }
-      });
+      // Clear cart when a new user logs in
+      clearCart();
+
+      localStorage.setItem('token', res.data.token);
+      if (res.data.user.type === 'admin') {
+        window.location.href = '/admin';
+      } else {
+        window.location.href = '/';
+      }
+    });
   }
 
   const googleLogin = useGoogleLogin({
     onSuccess: (res) => {
-        console.log(res);
-        axios
-            .post(import.meta.env.VITE_BACKEND_URL + "/api/users/googleLogin", {
-                token: res.access_token
-            })
-            .then((response) => {
-                if (response.data.message === "User logged in") {
-                    localStorage.setItem("token", response.data.token);
-                    toast.success("Login via Google successful!");
+      axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users/googleLogin", {
+        token: res.access_token
+      })
+      .then((response) => {
+        if (response.data.message === "User logged in") {
+          // Clear cart when a new user logs in via Google
+          clearCart();
+          
+          localStorage.setItem("token", response.data.token);
+          toast.success("Login via Google successful!");
 
-                    if (response.data.user.type === "admin") {
-                        window.location.href = "/admin";
-                    } else {
-                        window.location.href = "/";
-                    }
-                } else {
-                    toast.error("Login failed. Please sign up first.");
-                }
-            })
-            .catch((error) => {
-                console.error("Google login error:", error);
-                toast.error("An error occurred during Google login.");
-            });
+          if (response.data.user.type === "admin") {
+            window.location.href = "/admin";
+          } else {
+            window.location.href = "/";
+          }
+        } else {
+          toast.error("Login failed. Please sign up first.");
+        }
+      })
+      .catch((error) => {
+        console.error("Google login error:", error);
+        toast.error("An error occurred during Google login.");
+      });
     }
-});
-
+  });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
@@ -114,13 +118,13 @@ export default function LoginPage() {
           </button>
 
           <div className="mt-6 text-center">
-          <span className="text-sm text-gray-600">Don’t have an account?</span>
-          <Link
-            to="/signup"
-            className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
-          >
-            Register
-          </Link>
+            <span className="text-sm text-gray-600">Don’t have an account?</span>
+            <Link
+              to="/signup"
+              className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
+            >
+              Register
+            </Link>
           </div>
 
           <div className="relative flex items-center my-4">
@@ -130,15 +134,14 @@ export default function LoginPage() {
           </div>
 
           <button 
-          onClick={()=>{googleLogin()}} 
-          type="button" 
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            onClick={() => googleLogin()} 
+            type="button" 
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
           >
             <BsGoogle className="text-lg" />
-            Login with google
+            Login with Google
           </button>
         </form>
-
       </div>
     </div>
   );
