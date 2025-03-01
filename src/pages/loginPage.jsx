@@ -71,8 +71,10 @@ export default function LoginPage() {
   });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary">
-      <div className="w-[450px] p-8 bg-white shadow-lg rounded-lg">
+    <div className="flex items-center justify-center min-h-screen bg-[url('/background2.png')] bg-cover bg-center relative">
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="relative w-[450px] p-8 bg-white shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
           <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
