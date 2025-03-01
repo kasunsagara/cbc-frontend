@@ -32,7 +32,7 @@ export default function ShippingCard(props){
       {!loaded ? (
         <tr>loading</tr>
       ) : (
-        <tr className="hover:bg-accent hover:text-white cursor-pointer">
+        <tr className="hover:bg-accent hover:text-white">
           <td className="p-2 border border-gray-400">
             <img
               src={product?.images[0]}

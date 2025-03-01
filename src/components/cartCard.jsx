@@ -54,7 +54,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
           <td colSpan="7" className="text-center p-4">Loading...</td>
         </tr>
       ) : (
-        <tr className="hover:bg-accent hover:text-white cursor-pointer">
+        <tr className="hover:bg-accent hover:text-white">
           <td className="p-2 border border-gray-400">
             <img
               src={product?.images?.[0] || "/placeholder.jpg"} // Fallback image
