@@ -14,19 +14,29 @@ export default function Cart() {
     fetchCartData();
   }, []);
 
-  function fetchCartData() {
-    const updatedCart = loadCart();
+  async function fetchCartData() {
+    const updatedCart = loadCart() || []; // Ensure cart is an array
     setCart(updatedCart);
-    axios
-      .post(import.meta.env.VITE_BACKEND_URL + "/api/orders/quote", {
-        orderedItems: updatedCart,
-      })
-      .then((res) => {
-        if (res.data.total != null) {
-          setTotal(res.data.total);
-          setLabeledTotal(res.data.labeledTotal);
-        }
-      });
+
+    if (updatedCart.length === 0) {
+      setTotal(0);
+      setLabeledTotal(0);
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/orders/quote`,
+        { orderedItems: updatedCart }
+      );
+
+      if (response.data?.total != null) {
+        setTotal(parseFloat(response.data.total) || 0);
+        setLabeledTotal(parseFloat(response.data.labeledTotal) || 0);
+      }
+    } catch (error) {
+      console.error("Error fetching cart total:", error);
+    }
   }
 
   function handleItemDelete() {
@@ -34,47 +44,69 @@ export default function Cart() {
   }
 
   return (
-    <div className="w-full h-full overflow-y-scroll flex flex-col items-center p-4">
-      <table className="w-3/5 mx-auto border border-gray-400 border-collapse">
-        <thead>
-          <tr className="bg-gray-200 border border-gray-400">
-            <th className="border border-gray-400 p-2">Image</th>
-            <th className="border border-gray-400 p-2">Product Name</th>
-            <th className="border border-gray-400 p-2">Product ID</th>
-            <th className="border border-gray-400 p-2">Qty</th>
-            <th className="border border-gray-400 p-2">Price</th>
-            <th className="border border-gray-400 p-2">Total</th>
-            <th className="border border-gray-400 p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item) => (
-            <CartCard
-              key={item.productId}
-              productId={item.productId}
-              qty={item.qty}
-              onItemDelete={handleItemDelete}
-            />
-          ))}
-        </tbody>
-      </table>
-      <div className="mt-6 text-center">
-        <h1 className="text-3xl font-bold text-neutral-600 mt-4">
-          Total: LKR. {labeledTotal.toFixed(2)}
-        </h1>
-        <h1 className="text-3xl font-bold text-neutral-600">
-          Discount: LKR. {(labeledTotal - total).toFixed(2)}
-        </h1>
-        <h1 className="text-3xl font-bold text-neutral-600">
-          Grand Total: LKR. {total.toFixed(2)}
-        </h1>
-        <button
-          onClick={() => navigate("/shipping", { state: { items: cart } })}
-          className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg w-[300px] mt-4"
-        >
-          Checkout
-        </button>
-      </div>
+    <div
+      className="w-full min-h-screen flex flex-col items-center p-4 relative"
+      style={{
+        backgroundImage: 'url("/background2.png")', // Ensure this file is in 'public'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Cart Table */}
+      {cart.length > 0 ? (
+        <table className="relative w-3/5 mx-auto border border-gray-400 border-collapse bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg overflow-hidden">
+          <thead>
+            <tr className="border border-gray-200 text-gray-700 bg-yellow-500 text-lg font-semibold">
+              <th className="border border-gray-200 p-2">Image</th>
+              <th className="border border-gray-200 p-2">Product Name</th>
+              <th className="border border-gray-200 p-2">Product ID</th>
+              <th className="border border-gray-200 p-2">Qty</th>
+              <th className="border border-gray-200 p-2">Price</th>
+              <th className="border border-gray-200 p-2">Total</th>
+              <th className="border border-gray-200 p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item) => (
+              <CartCard
+                key={item.productId}
+                productId={item.productId}
+                qty={item.qty}
+                onItemDelete={handleItemDelete}
+              />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <h2 className="relative text-2xl font-semibold text-white mt-10">
+          Your cart is empty!
+        </h2>
+      )}
+
+      {/* Cart Summary */}
+      {cart.length > 0 && (
+        <div className="relative mt-6 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md w-1/3">
+          <h1 className="text-2xl font-bold text-gray-700">
+            Total: LKR. {labeledTotal.toFixed(2)}
+          </h1>
+          <h1 className="text-2xl font-bold text-gray-700">
+            Discount: LKR. {(labeledTotal - total).toFixed(2)}
+          </h1>
+          <h1 className="text-2xl font-bold text-gray-700">
+            Grand Total: LKR. {total.toFixed(2)}
+          </h1>
+          <button
+            onClick={() => navigate("/shipping", { state: { items: cart } })}
+            className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold p-3 rounded-lg w-[300px] mt-4 shadow-md transition-transform transform hover:scale-105"
+          >
+            Checkout
+          </button>
+        </div>
+      )}
     </div>
   );
 }

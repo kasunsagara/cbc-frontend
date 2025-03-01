@@ -57,8 +57,8 @@ export default function AdminCustomersPage() {
                 >
                   <td className="px-6 py-4">{product.productId}</td>
                   <td className="px-6 py-4">{product.productName}</td>
-                  <td className="px-6 py-4">${product.price}</td>
-                  <td className="px-6 py-4">${product.lastPrice}</td>
+                  <td className="px-6 py-4">LKR {product.price}</td>
+                  <td className="px-6 py-4">LKR {product.lastPrice}</td>
                   <td className="px-6 py-4">{product.stock}</td>
                   <td className="px-6 py-4">{product.description}</td>
                   <td className="px-6 py-4 flex gap-2">

@@ -55,18 +55,18 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
         </tr>
       ) : (
         <tr className="hover:bg-accent hover:text-white">
-          <td className="p-2 border border-gray-400">
+          <td className="p-2 border border-gray-200">
             <img
               src={product?.images?.[0] || "/placeholder.jpg"} // Fallback image
               className="w-[90px] h-[90px] object-cover mx-auto"
               alt="Product"
             />
           </td>
-          <td className="text-center p-2 border border-gray-400">
+          <td className="text-center p-2 border border-gray-200">
             {product?.productName}
           </td>
-          <td className="text-center p-2 border border-gray-400">{productId}</td>
-          <td className="text-center p-2 border border-gray-400">
+          <td className="text-center p-2 border border-gray-200">{productId}</td>
+          <td className="text-center p-2 border border-gray-200">
             {/* Adjusting the qty with icons */}
             <div className="flex justify-center items-center gap-2">
               <button
@@ -79,7 +79,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
                 type="number"
                 value={quantity}
                 onChange={handleQuantityChange}
-                className="w-12 text-center bg-primary text-black"
+                className="w-12 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-10 text-black"
                 min="1"
               />
               <button
@@ -90,13 +90,13 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
               </button>
             </div>
           </td>
-          <td className="text-center p-2 border border-gray-400">
+          <td className="text-center p-2 border border-gray-200">
             LKR. {product?.lastPrice?.toFixed(2)}
           </td>
-          <td className="text-center p-2 border border-gray-400">
+          <td className="text-center p-2 border border-gray-200">
             LKR. {(product?.lastPrice * quantity).toFixed(2)}
           </td>
-          <td className="text-center p-2 border border-gray-400">
+          <td className="text-center p-2 border border-gray-200">
             <button
               onClick={handleDelete}
               className="text-red-600 hover:text-red-400"

@@ -42,14 +42,25 @@ export default function MyOrdersPage() {
   };
 
   return (
-    <div className="w-full h-full overflow-y-scroll flex flex-col items-center p-4">
-      <h1 className="text-2xl font-bold mb-4">My Orders</h1>
+    <div
+      className="w-full min-h-screen flex flex-col items-center p-4 relative"
+      style={{
+        backgroundImage: 'url("/background2.png")', // Ensure this file is in 'public'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <h1 className="text-3xl font-bold mb-4">My Orders</h1>
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <div className="w-1/2 bg-white shadow-lg rounded-lg">
+        <div className="w-1/2 bg-white shadow-lg rounded-lg relative">
                 <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
                   <thead>
                     <tr className="bg-secondary text-white">

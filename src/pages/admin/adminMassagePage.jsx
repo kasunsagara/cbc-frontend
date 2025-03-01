@@ -42,7 +42,6 @@ export default function AdminMessagePage() {
             <thead>
               <tr className="bg-secondary text-white">
                 <th className="px-6 py-3">Name</th>
-                <th className="px-6 py-3">Email</th>
                 <th className="px-6 py-3">Message</th>
                 <th className="px-6 py-3 text-center">Actions</th>
               </tr>
@@ -51,7 +50,6 @@ export default function AdminMessagePage() {
               {messages.map((msg, index) => (
                 <tr key={index} className="hover:bg-gray-100">
                   <td className="px-6 py-4">{msg.name}</td>
-                  <td className="px-6 py-4">{msg.email}</td>
                   <td className="px-6 py-4">{msg.message}</td>
                   <td className="px-6 py-4 text-center">
                     <button

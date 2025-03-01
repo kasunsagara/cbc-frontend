@@ -47,8 +47,19 @@ export default function ProductOverview() {
   }
 
   return (
-    <div className="w-full h-[calc(100vh-100px)] flex justify-center items-center">
-      <div className="max-w-5xl p-5 rounded-lg shadow-lg shadow-gray-500 bg-white backdrop-filter backdrop-blur-lg bg-opacity-20">
+    <div
+      className="w-full h-[calc(100vh-100px)] flex justify-center items-center relative"
+      style={{
+          backgroundImage: "url('/background2.png')", // Change this to your desired background image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+      }}
+  >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <div className="max-w-5xl p-5 rounded-lg shadow-lg bg-white backdrop-filter backdrop-blur-lg bg-opacity-30">
         {
           status === "loading" && (
             <div className="w-full h-full flex items-center justify-center">
@@ -80,14 +91,14 @@ export default function ProductOverview() {
               </div>
               <div className="w-[63%] h-full p-4"> 
                 <h1 className="text-3xl font-bold text-gray-800 mb-4">{product.productName}</h1>
-                <h1 className="text-3xl font-bold text-gray-500 mb-6">{product.altNames.join(" | ")}</h1>
+                <h1 className="text-3xl font-bold text-gray-600 mb-6">{product.altNames.join(" | ")}</h1>
                 <p className="text-xl text-black mb-6">
                   {(product.price > product.lastPrice) && (
-                    <span className="line-through text-gray-500">LKR. {product.price}</span>
+                    <span className="line-through text-gray-700">LKR. {product.price}</span>
                   )}
-                  <span>{" LKR. " + product.lastPrice}</span>
+                  <span className="text-gray-200">{" LKR. " + product.lastPrice}</span>
                 </p>
-                <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
+                <p className="text-lg text-gray-700 line-clamp-3">{product.description}</p>
                 <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg mr-2">
                 Add to cart
                 </button>

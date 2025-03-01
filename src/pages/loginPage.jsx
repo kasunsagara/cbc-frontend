@@ -71,10 +71,10 @@ export default function LoginPage() {
   });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[url('/background2.png')] bg-cover bg-center relative">
+    <div className="flex items-center justify-center min-h-screen bg-[url('/background3.png')] bg-cover bg-center relative">
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      <div className="relative w-[450px] p-8 bg-white shadow-lg rounded-lg">
+      <div className="relative w-[450px] p-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
         <div className="flex justify-center mb-6">
           <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
@@ -114,13 +114,13 @@ export default function LoginPage() {
           <button
             onClick={login}
             type="button"
-            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             Login
           </button>
 
           <div className="mt-6 text-center">
-            <span className="text-sm text-gray-600">Don’t have an account?</span>
+            <span className="text-sm text-gray-700">Don’t have an account?</span>
             <Link
               to="/signup"
               className="ml-1 text-secondary hover:text-accent font-semibold transition-all duration-200"
@@ -131,14 +131,14 @@ export default function LoginPage() {
 
           <div className="relative flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
-            <span className="mx-4 text-gray-500 font-medium">OR</span>
+            <span className="mx-4 text-gray-600 font-medium">OR</span>
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
           <button 
             onClick={() => googleLogin()} 
             type="button" 
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             <BsGoogle className="text-lg" />
             Login with Google

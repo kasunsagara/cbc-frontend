@@ -47,11 +47,22 @@ export default function ProductPage(){
       }
     }
     return (
-      <div className="w-full h-full pt-4 relative">
+      <div
+      className="w-full h-full pt-4 relative"
+      style={{
+          backgroundImage: "url('/background2.png')", // Change this to your desired background image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+      }}
+  >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
         <div className="absolute w-full flex justify-center">
               <input
                 type="text"
-                className="w-1/2 p-2 absolute z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80"
+                className="w-1/2 p-2 absolute z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 placeholder:text-gray-100 rounded-lg"
                 placeholder="Search Products"
                 onChange={search}
                 value={query}
@@ -69,6 +80,6 @@ export default function ProductPage(){
             <div className="animate-spin rounded-full h-32 w-32  border-2 border-gray-500 border-b-accent border-b-4"></div>
           </div>
         )} 
-    </div>
+      </div>
   )
 }
