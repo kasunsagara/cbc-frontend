@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/homePage'
@@ -9,13 +8,11 @@ import { Toaster } from 'react-hot-toast'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="bg-primary">
     <BrowserRouter>
     <Toaster position="top-right"/>
-    <GoogleOAuthProvider clientId='880634139641-pdjhsj7u82geto5dp7u2rr7cidod3fq2.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
     <Routes path="/*">
         <Route path="/*" element={<HomePage />} />
 

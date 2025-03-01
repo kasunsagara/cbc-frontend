@@ -126,7 +126,7 @@ export default function Header() {
               <div className="absolute top-full right-0 mt-2 bg-white p-6 rounded-lg shadow-lg w-80 z-50">
                 <button
                   onClick={() => setShowDetailsModal(false)}
-                  className="absolute top-2 right-2 text-gray-900 hover:text-gray-600"
+                  className="absolute top-2 right-2 text-gray-600 hover:text-gray-400"
                 >
                   <FaTimes size={20} />
                 </button>
