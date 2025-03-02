@@ -74,11 +74,9 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-[url('/background4.png')] bg-cover bg-center relative">
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      
       <div className="relative w-[450px] p-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
-        <div className="flex justify-center mb-6">
-          <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
-        </div>
-        <h1 className="text-2xl font-bold text-secondary text-center mb-6">Welcome Back</h1>
+        <h1 className="text-3xl font-bold text-secondary text-center mb-6">Welcome Back</h1>
         <form className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">

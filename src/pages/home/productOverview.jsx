@@ -63,8 +63,14 @@ export default function ProductOverview() {
         {
           status === "loading" && (
             <div className="w-full h-full flex items-center justify-center">
-              <div className="animate-spin rounded-full h-32 w-32 border-2 border-gray-500 border-b-accent border-b-4"></div>
+            <div className="relative">
+              {/* Outer Glow Effect */}
+              <div className="absolute inset-0 rounded-full h-32 w-32 bg-gradient-to-tr from-accent to-secondary opacity-30 blur-lg"></div>
+
+              {/* Spinner */}
+              <div className="animate-spin rounded-full h-32 w-32 border-[6px] border-gray-300 border-t-accent border-t-8 shadow-lg"></div>
             </div>
+          </div>
           )
         }
         {
