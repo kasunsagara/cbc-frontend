@@ -29,12 +29,6 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
     onItemDelete(); // Update cart in parent component
   };
 
-  const handleQuantityChange = (event) => {
-    const newQty = Math.max(1, event.target.value); // Prevent negative quantities or zero
-    setQuantity(newQty);
-    onQtyChange(productId, newQty); // Update quantity in parent component
-  };
-
   const handleIncrease = () => {
     setQuantity(quantity + 1);
     onQtyChange(productId, quantity + 1); // Update quantity in parent component
@@ -75,13 +69,7 @@ export default function CartCard({ productId, qty, onItemDelete, onQtyChange }) 
               >
                 <FaMinus />
               </button>
-              <input
-                type="number"
-                value={quantity}
-                onChange={handleQuantityChange}
-                className="w-12 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-10 text-black"
-                min="1"
-              />
+              <span className="text-lg font-semibold">{quantity}</span>
               <button
                 onClick={handleIncrease}
                 className="text-gray-600 hover:text-gray-400"
