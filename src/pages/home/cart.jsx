@@ -47,7 +47,7 @@ export default function Cart() {
     <div
       className="w-full min-h-screen flex flex-col items-center p-4 relative"
       style={{
-        backgroundImage: 'url("/background2.png")', // Ensure this file is in 'public'
+        backgroundImage: 'url("/background3.png")', // Ensure this file is in 'public'
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

@@ -81,10 +81,18 @@ export default function SignupPage() {
 });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[url('/background3.png')] bg-cover bg-center relative">
-      {/* Overlay for better readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-
+    <div
+      className="w-full min-h-screen flex flex-col items-center justify-center relative"
+      style={{
+        backgroundImage: 'url("/background5.png")', // Ensure this file is in the 'public' folder
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+      
       <div className="relative w-[450px] p-8 m-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
         <h1 className="text-3xl font-bold text-secondary text-center mb-6">
           Create an Account

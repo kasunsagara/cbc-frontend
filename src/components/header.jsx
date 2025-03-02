@@ -130,7 +130,7 @@ export default function Header() {
                 >
                   <FaTimes size={20} />
                 </button>
-                <h2 className="text-xl font-bold mb-4 text-secondary">User Details</h2>
+                <h2 className="text-2xl font-bold mb-4 text-secondary">User Details</h2>
                 <p className="text-gray-700">
                   <strong>Profile Picture:</strong>
                 </p>

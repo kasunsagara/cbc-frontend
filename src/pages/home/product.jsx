@@ -50,7 +50,7 @@ export default function ProductPage(){
       <div
       className="w-full h-full pt-4 relative"
       style={{
-          backgroundImage: "url('/background3.png')", // Change this to your desired background image
+          backgroundImage: "url('/background2.png')", // Change this to your desired background image
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

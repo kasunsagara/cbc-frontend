@@ -45,7 +45,7 @@ export default function MyOrdersPage() {
     <div
       className="w-full min-h-screen flex flex-col items-center p-4 relative"
       style={{
-        backgroundImage: 'url("/background2.png")', // Ensure this file is in 'public'
+        backgroundImage: 'url("/background5.png")', // Ensure this file is in 'public'
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -54,7 +54,8 @@ export default function MyOrdersPage() {
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <h1 className="text-3xl font-bold mb-4">My Orders</h1>
+      <div className="w-full flex flex-col items-center relative">
+      <h1 className="text-3xl text-secondary font-bold mb-4">My Orders</h1>
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
@@ -164,6 +165,7 @@ export default function MyOrdersPage() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
