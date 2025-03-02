@@ -8,7 +8,9 @@ const precautions = [
     { title: "Store Properly", description: "Keep in a cool, dry place to maintain product effectiveness and longevity" },
     { title: "Sun Sensitivity", description: "Some ingredients may boost sun sensitivity, so wear sunscreen daily." },
     { title: "Discontinue if irritated", description: "Stop using immediately if redness, itching, or irritation develops" },
-    { title: "Check Ingredients", description: "Ensure ingredients align with your skin type and avoid known allergens" }
+    { title: "Check Ingredients", description: "Ensure ingredients align with your skin type and avoid known allergens" },
+    { title: "Keep Out of Reach of Children", description: "Store products out of children's reach to prevent accidental ingestion or misuse." },
+    { title: "Use as Directed", description: "Follow product instructions carefully to ensure safe and effective use." }
   ];
 
 export default function ProductPrecautions() {
@@ -33,7 +35,7 @@ export default function ProductPrecautions() {
         <div className="absolute inset-0 bg-black/40"></div>
       {/* Title fixed at the top with even more space */}
       <h2 className="absolute top-33 text-4xl font-bold text-secondary mb-8 drop-shadow-md z-20">
-      Things to Be Careful About
+      What’s considerations using our products?
       </h2>
 
       {/* Cards and Buttons Container */}

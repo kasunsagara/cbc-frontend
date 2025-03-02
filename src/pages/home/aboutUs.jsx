@@ -13,7 +13,7 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-black/40"></div>
       
       <div className="relative z-10 mt-6">
-        <h3 className="text-2xl font-semibold text-center text-accent mb-4">Our Commitment to Beauty and Confidence</h3>
+        <h3 className="text-2xl font-semibold text-center text-secondary mb-4">Our Commitment to Beauty and Confidence</h3>
         <p className="text-lg text-gray-200 text-center mb-6">
           At Beauty Care, we believe that everyone deserves to feel confident and beautiful in their own skin. Our mission is to provide <br />
           high-quality beauty products. We also offer a range of services designed to help you enhance your natural beauty.
@@ -45,7 +45,7 @@ export default function AboutUs() {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <h3 className="text-2xl font-semibold text-accent mb-4">Join Us in Your Beauty Journey</h3>
+            <h3 className="text-2xl font-semibold text-secondary mb-4">Join Us in Your Beauty Journey</h3>
             <p className="text-lg text-gray-200 mb-6">
               Whether you're looking for the perfect skincare routine or want to treat yourself to luxurious <br />
               beauty products, we are here to guide and inspire you.

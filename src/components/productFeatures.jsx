@@ -8,7 +8,9 @@ const features = [
     { title: "Eco-Friendly Packaging", description: "We care about the planet as much as we care about your skin" },
     { title: "Cruelty-Free", description: "Our products are never tested on animals, ensuring a kind approach to beauty" },
     { title: "Clinically Proven Results", description: "Our products deliver real, visible improvements backed by clinical studies" },
-    { title: "Customizable Solutions", description: "We offer tailored products to meet your unique skin care needs" }
+    { title: "Customizable Solutions", description: "We offer tailored products to meet your unique skin care needs" },
+    { title: "Long-Lasting Hydration", description: "Our formulas provide all-day hydration and nourishment." },
+    { title: "Suitable for All Skin Types", description: "Our products suit all skin types, from sensitive to oily." }
   ];
 
 export default function ProductFeatures() {

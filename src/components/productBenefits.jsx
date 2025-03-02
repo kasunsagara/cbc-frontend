@@ -8,7 +8,9 @@ const benefits = [
     { title: "Soothes Irritation", description: "It calms redness and reduces sensitivity, soothing irritated skin." },
     { title: "Anti-Aging Properties", description: "Fights wrinkles and fine lines for smoother, youthful skin." },
     { title: "Protects Against Pollution", description: "Protects your skin from environmental damage, including pollutants and UV rays." },
-    { title: "Non-Greasy Formula", description: "Lightweight and fast-absorbing for all skin types." }
+    { title: "Non-Greasy Formula", description: "Lightweight and fast-absorbing for all skin types." },
+    { title: "Boosts Collagen Production", description: "Supports skin elasticity and firmness, reducing sagging." },
+    { title: "Evens Skin Tone", description: "Helps fade dark spots and hyperpigmentation for a balanced complexion." }
   ];
 
 export default function ProductBenefits() {
@@ -33,7 +35,7 @@ export default function ProductBenefits() {
         <div className="absolute inset-0 bg-black/40"></div>
       {/* Title fixed at the top with even more space */}
       <h2 className="absolute top-33 text-4xl font-bold text-secondary mb-8 drop-shadow-md z-20">
-      Benefits of Using Our Products
+      What’s Benefits of Using Our Products?
       </h2>
 
       {/* Cards and Buttons Container */}

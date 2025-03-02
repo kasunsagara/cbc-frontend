@@ -69,7 +69,7 @@ export default function ContactUs() {
 
       {/* Contact Info */}
       <div className="relative mt-6 text-gray-100 space-y-5 text-lg p-2">
-        <h3 className="text-2xl font-semibold text-accent mb-4 text-center">Reach Out to Us</h3>
+        <h3 className="text-2xl font-semibold text-secondary mb-4 text-center">Reach Out to Us</h3>
         <div className="flex items-center space-x-3">
           <FaPhoneAlt className="text-secondary" />
           <span>0771670585</span>
@@ -97,7 +97,7 @@ export default function ContactUs() {
       </div>
 
       {/* Contact Form */}
-      <h3 className="relative text-2xl font-semibold text-accent mb-4 p-4">We’d Love to Hear from You</h3>
+      <h3 className="relative text-2xl font-semibold text-secondary mb-4 p-4">We’d Love to Hear from You</h3>
       <div className="relative bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-2xl p-8 w-full max-w-2xl">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

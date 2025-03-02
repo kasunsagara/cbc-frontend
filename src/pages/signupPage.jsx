@@ -89,12 +89,12 @@ export default function SignupPage() {
         <div className="flex justify-center mb-6">
           <img src="/logo2.png" alt="Logo" className="rounded-full w-[80px] shadow-md" />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900 text-center mb-6">
+        <h1 className="text-2xl font-bold text-secondary text-center mb-6">
           Create an Account
         </h1>
         <form className="space-y-4">
         <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-800 mb-1">
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
               First Name
             </label>
             <input
@@ -110,7 +110,7 @@ export default function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-800 mb-1">
+            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
               Last Name
             </label>
             <input
@@ -127,7 +127,7 @@ export default function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
@@ -144,7 +144,7 @@ export default function SignupPage() {
             />
           </div>  
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-800 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
@@ -161,7 +161,7 @@ export default function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="profilePicture" className="block text-sm font-medium text-gray-800 mb-1">
+            <label htmlFor="profilePicture" className="block text-sm font-medium text-gray-700 mb-1">
               Profile Picture (URL)
             </label>
             <input

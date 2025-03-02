@@ -9,6 +9,8 @@ const ingredients = [
   { title: "Shea Butter", description: "Deeply nourishes and protects the skin from dryness." },
   { title: "Green Tea Extract", description: "Packed with antioxidants, it helps fight premature aging." },
   { title: "Jojoba Oil", description: "Balances natural oils and keeps skin soft and supple." },
+  { title: "Niacinamide", description: "Helps improve skin texture, reduces redness, and minimizes pores." },
+  { title: "Collagen", description: "Enhances skin elasticity and promotes a firm, youthful appearance." }
 ];
 
 export default function ProductIngredients() {
