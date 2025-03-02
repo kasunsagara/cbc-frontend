@@ -71,7 +71,7 @@ export default function LoginPage() {
   });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[url('/background3.png')] bg-cover bg-center relative">
+    <div className="flex items-center justify-center min-h-screen bg-[url('/background4.png')] bg-cover bg-center relative">
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       <div className="relative w-[450px] p-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
