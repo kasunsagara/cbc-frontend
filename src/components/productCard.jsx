@@ -11,20 +11,20 @@ export default function ProductCard(props) {
           className="h-[60%] w-full object-cover"
         />
         <div className="max-h-[40%] h-[30%] p-4 flex flex-col justify-between">
-          <h1 className="text-3xl font-bold text-accent text-center">
+          <h1 className="text-3xl font-bold text-secondary text-center">
             {props.product.productName}
           </h1>
           <h2 className="text-lg text-gray-700 text-center">
             {props.product.productId}
           </h2>
-          <p className="text-xl text-center text-gray-200">
-            LKR. {props.product.lastPrice.toFixed(2)}
-          </p>
           {props.product.lastPrice < props.product.price && (
             <p className="text-xl text-center text-gray-700 line-through">
               LKR. {props.product.price.toFixed(2)}
             </p>
           )}
+          <p className="text-xl text-center text-gray-200">
+            LKR. {props.product.lastPrice.toFixed(2)}
+          </p>
         </div>
     </Link>
   );

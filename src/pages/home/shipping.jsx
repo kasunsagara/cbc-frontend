@@ -168,7 +168,7 @@ export default function ShippingPage() {
           />
         </div>
         <button
-          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 mt-4 shadow-md transition-transform transform hover:scale-105 text-white font-semibold p-2 rounded-lg w-full"
+          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 mt-4 shadow-md transition-transform transform hover:scale-105 text-white font-semibold p-2 rounded-lg w-full"
           onClick={createOrder}
         >
           Checkout

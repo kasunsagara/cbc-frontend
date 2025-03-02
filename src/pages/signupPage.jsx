@@ -182,7 +182,7 @@ export default function SignupPage() {
           <button
             type="button"
             onClick={signup}
-            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
+            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             Sign Up
           </button>
@@ -203,7 +203,7 @@ export default function SignupPage() {
           <button 
             onClick={() => googleSignup()} 
             type="button" 
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             <BsGoogle className="text-lg" />
             Sign up with Google

@@ -75,7 +75,7 @@ export default function ProductOverview() {
                 <p className="text-xl text-gray-600 mb-6">Product not found</p>
                 <button
                   onClick={() => window.history.back()}
-                  className="px-6 py-2 bg-secondary hover:bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all"
+                  className="px-6 py-2 bg-secondary hover:bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all bg-gradient-to-r from-red-400 to-red-600 hover:from-red-300 hover:to-red-500 p-3 mt-4 shadow-md transform hover:scale-105"
                 >
                   Go Back
                 </button>
@@ -99,10 +99,10 @@ export default function ProductOverview() {
                   <span className="text-gray-200">{" LKR. " + product.lastPrice}</span>
                 </p>
                 <p className="text-lg text-gray-700 line-clamp-3">{product.description}</p>
-                <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg mr-2">
+                <button onClick={onAddtoCartClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg mr-2 bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-300 hover:to-blue-500 mt-4 shadow-md transition-transform transform hover:scale-105">
                 Add to cart
                 </button>
-                <button onClick={onBuyNowClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg">
+                <button onClick={onBuyNowClick} className="bg-secondary hover:bg-accent text-white font-semibold p-2 rounded-lg bg-gradient-to-r from-green-400 to-green-600 hover:from-green-300 hover:to-green-500 mt-4 shadow-md transition-transform transform hover:scale-105">
                 Buy Now
                 </button>
               </div>

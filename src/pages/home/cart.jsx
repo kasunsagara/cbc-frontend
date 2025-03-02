@@ -101,7 +101,7 @@ export default function Cart() {
           </h1>
           <button
             onClick={() => navigate("/shipping", { state: { items: cart } })}
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold p-3 rounded-lg w-[300px] mt-4 shadow-md transition-transform transform hover:scale-105"
+            className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 text-white font-semibold p-3 rounded-lg w-[300px] mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             Checkout
           </button>

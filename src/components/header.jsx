@@ -104,18 +104,18 @@ export default function Header() {
 
             {showProfileDropdown && (
               <div
-                className="absolute right-0 mt-2 bg-white shadow-md rounded-lg p-2 w-48 z-50"
+                className="absolute right-0 mt-2 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-md rounded-lg p-2 w-48 z-50"
                 onMouseLeave={() => setShowProfileDropdown(false)}
               >
                 <button
                   onClick={() => setShowDetailsModal(true)}
-                  className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md w-full text-left"
+                  className="flex items-center gap-2 text-white font-bold hover:bg-secondary p-2 rounded-md w-full text-left"
                 >
                   <FaUser /> Account
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 text-secondary font-bold hover:bg-gray-100 p-2 rounded-md w-full text-left"
+                  className="flex items-center gap-2 text-white font-bold hover:bg-secondary p-2 rounded-md w-full text-left"
                 >
                   <FaSignOutAlt /> Logout
                 </button>
@@ -123,7 +123,7 @@ export default function Header() {
             )}
 
             {showDetailsModal && userData && (
-              <div className="absolute top-full right-0 mt-2 bg-white p-6 rounded-lg shadow-lg w-80 z-50">
+              <div className="absolute top-full right-0 mt-2 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-lg w-80 z-50">
                 <button
                   onClick={() => setShowDetailsModal(false)}
                   className="absolute top-2 right-2 text-gray-600 hover:text-gray-400"

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
+import MessageSlideshow from "../../components/messageSlideshow";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", message: "" });
@@ -128,39 +129,14 @@ export default function ContactUs() {
           </div>
           <button
             type="submit"
-            className="w-full bg-secondary text-white py-2 rounded-lg text-lg font-semibold hover:bg-accent transition duration-300 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 p-3  mt-4 shadow-md transform hover:scale-105"
+            className="w-full bg-secondary text-white py-2 rounded-lg text-lg font-semibold hover:bg-accent transition duration-300 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transform hover:scale-105"
           >
             Send Message
           </button>
         </form>
       </div>
 
-      {/* Display Messages Table */}
-      <div className="relative w-full max-w-4xl mt-8 mb-8">
-        <h3 className="text-2xl font-semibold text-accent mb-4 p-4 text-center">Submitted Messages</h3>
-        {messages.length === 0 ? (
-          <p className="text-gray-500 text-center">No messages yet.</p>
-        ) : (
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-secondary text-white">
-                  <th className="px-6 py-3">Name</th>
-                  <th className="px-6 py-3">Message</th>
-                </tr>
-              </thead>
-              <tbody>
-                {messages.map((msg, index) => (
-                  <tr key={index} className="hover:bg-gray-100">
-                    <td className="px-6 py-4">{msg.name}</td>
-                    <td className="px-6 py-4">{msg.message}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+      <MessageSlideshow messages={messages} />
     </div>
   );
 }

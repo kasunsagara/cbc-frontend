@@ -155,7 +155,7 @@ export default function MyOrdersPage() {
             </div>
             <div className="flex justify-end mt-4">
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-400"
+                className="text-white px-4 py-2 rounded-lg bg-gradient-to-r from-red-400 to-red-600 hover:from-red-300 hover:to-red-500 mt-4 shadow-md transition-transform transform hover:scale-105 font-semibold p-2"
                 onClick={closeModal}
               >
                 Close
