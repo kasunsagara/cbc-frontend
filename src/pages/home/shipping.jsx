@@ -130,7 +130,7 @@ export default function ShippingPage() {
         </h1>
       </div>
 
-      <div className="relative w-3/5 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md mt-6">
+      <div className="relative w-1/2 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md mt-6">
         <h2 className="text-2xl font-bold mb-4">Shipping Details</h2>
         <div className="mb-4">
           <label className="block font-medium text-gray-700 mb-1">Name</label>
