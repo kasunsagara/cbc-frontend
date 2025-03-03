@@ -28,23 +28,39 @@ export default function ProductOverview() {
       });
   }, []);
 
-  function onAddtoCartClick(){
-    addToCart(product.productId,1)
-    toast.success(product.productId+" Added to cart")
+  function onAddtoCartClick() {
+    const token = localStorage.getItem("token"); // Assuming you store the token in localStorage
+
+    if (!token) {
+        toast.error("You need to log in to add items to the cart.");
+        navigate("/login"); // Redirect to login page
+        return;
+    }
+
+    addToCart(product.productId, 1, token); // Ensure your function accepts a token
+    toast.success(product.productId + " added to cart");
+}
+
+function onBuyNowClick() {
+  const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+
+  if (!token) {
+      toast.error("You need to log in to make a purchase.");
+      navigate("/login"); // Redirect to login page
+      return;
   }
 
-  function onBuyNowClick(){
-    navigate("/shipping",{
-      state:{
-        items: [
-          {
-            productId: product.productId,
-            qty: 1
-          }
-        ]
+  navigate("/shipping", {
+      state: {
+          items: [
+              {
+                  productId: product.productId,
+                  qty: 1
+              }
+          ]
       }
-    })
-  }
+  });
+}
 
   return (
     <div
