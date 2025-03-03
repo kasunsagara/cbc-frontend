@@ -33,7 +33,7 @@ export default function ProductOverview() {
 
     if (!token) {
         toast.error("You need to log in to add items to the cart.");
-        navigate("/login"); // Redirect to login page
+        navigate("/login");
         return;
     }
 

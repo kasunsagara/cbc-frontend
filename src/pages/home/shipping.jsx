@@ -57,6 +57,7 @@ export default function ShippingPage() {
     const token = localStorage.getItem("token");
     if (!token) {
       toast.error("You must be logged in to place an order.");
+      navigate("/login");
       return;
     }
     axios
