@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaBox, FaDollarSign, FaShoppingCart } from "react-icons/fa";
+import { FaBox, FaDollarSign, FaShoppingCart, FaUsers, FaComments } from "react-icons/fa";
 
 export default function AdminDashboardPage() {
   const [totalOrders, setTotalOrders] = useState(0);
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [totalProducts, setTotalProducts] = useState(0);
+  const [totalCustomers, setTotalCustomers] = useState(0);
+  const [totalComments, setTotalComments] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -43,6 +45,32 @@ export default function AdminDashboardPage() {
       .catch((err) => {
         toast.error("Failed to fetch products. Please try again.");
       });
+
+      axios
+      .get(import.meta.env.VITE_BACKEND_URL + "/api/users/every", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setTotalCustomers(res.data.length);
+      })
+      .catch((err) => {
+        toast.error("Failed to fetch customers. Please try again.");
+      });
+
+      axios
+      .get(import.meta.env.VITE_BACKEND_URL + "/api/contacts/all", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setTotalComments(res.data.length);
+      })
+      .catch((err) => {
+        toast.error("Failed to fetch comments. Please try again.");
+      });
   }, []);
 
   return (
@@ -68,6 +96,20 @@ export default function AdminDashboardPage() {
           <div className="ml-4">
             <h2 className="text-xl font-semibold">Total Orders</h2>
             <p className="text-2xl">{totalOrders}</p>
+          </div>
+        </div>
+        <div className="bg-secondary text-white p-6 rounded-lg flex items-center shadow-md">
+          <FaUsers className="text-4xl" />
+          <div className="ml-4">
+            <h2 className="text-xl font-semibold">Total Customers</h2>
+            <p className="text-2xl">{totalCustomers}</p>
+          </div>
+        </div>
+        <div className="bg-secondary text-white p-6 rounded-lg flex items-center shadow-md">
+          <FaComments className="text-4xl" />
+          <div className="ml-4">
+            <h2 className="text-xl font-semibold">Total Comments</h2>
+            <p className="text-2xl">{totalComments}</p>
           </div>
         </div>
       </div>

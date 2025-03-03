@@ -69,7 +69,7 @@ export default function MyOrdersPage() {
                       <th className="px-6 py-3">Status</th>
                       <th className="px-6 py-3">Date</th>
                       <th className="px-6 py-3">Total</th>
-                      <th className="px-6 py-3">Actions</th>
+                      <th className="px-6 py-3">Action</th>
                     </tr>
                   </thead>
                   <tbody>

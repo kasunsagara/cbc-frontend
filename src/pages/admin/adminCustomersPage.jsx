@@ -86,7 +86,7 @@ export default function AdminCustomersPage() {
               <th className="px-6 py-3">Email</th>
               <th className="px-6 py-3">User Type</th>
               <th className="px-6 py-3">Account Status</th>
-              <th className="px-6 py-3">Actions</th>
+              <th className="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody>

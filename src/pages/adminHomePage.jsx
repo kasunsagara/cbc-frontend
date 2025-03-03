@@ -7,7 +7,7 @@ import EditProductForm from "./admin/editProductForm";
 import AdminOrdersPage from "./admin/adminOrderPage";
 import AdminDashboardPage from "./admin/adminDashboardPage";
 import AdminCustomersPage from "./admin/adminCustomersPage";
-import AdminMessagePage from "./admin/adminMassagePage";
+import AdminCommentPage from "./admin/adminCommentPage";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -90,10 +90,10 @@ export default function AdminHomePage() {
 
                 <Link 
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
-                    to="/admin/Message"
+                    to="/admin/comments"
                 >
                     <FaComments size={20} />
-                    <span className="text-lg">Messages</span>
+                    <span className="text-lg">Comments</span>
                 </Link>
                 <Link 
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
@@ -115,7 +115,7 @@ export default function AdminHomePage() {
                         <Route path="/products/editProduct" element={<EditProductForm/>} />
                         <Route path="/orders" element={<AdminOrdersPage/>} />
                         <Route path="/customers" element={<AdminCustomersPage/>} />
-                        <Route path="/Message" element={<AdminMessagePage/>} />
+                        <Route path="/comments" element={<AdminCommentPage/>} />
                         <Route path="/*" element={<h1 className="text-xl font-medium text-red-500">404 - Page Not Found</h1>} />
                         </Routes>}
                         {

@@ -2,26 +2,26 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
-import MessageSlideshow from "../../components/messageSlideshow";
+import CommentSlideshow from "../../components/commentSlideshow";
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({ name: "", message: "" });
-  const [messages, setMessages] = useState([]);
+  const [formData, setFormData] = useState({ name: "", comment: "" });
+  const [comments, setComments] = useState([]);
 
   // Refs for the input fields
   const nameRef = useRef(null);
-  const messageRef = useRef(null);
+  const commentRef = useRef(null);
 
   useEffect(() => {
-    fetchMessages();
+    fetchComments();
   }, []);
 
-  const fetchMessages = async () => {
+  const fetchComments = async () => {
     try {
       const response = await axios.get(import.meta.env.VITE_BACKEND_URL + "/api/contacts/all");
-      setMessages(response.data);
+      setComments(response.data);
     } catch (error) {
-      toast.error("Failed to load messages.");
+      toast.error("Failed to load comments.");
     }
   };
 
@@ -40,8 +40,8 @@ export default function ContactUs() {
       });
 
       toast.success(response.data.message);
-      setMessages([...messages, formData]);
-      setFormData({ name: "", message: "" });
+      setComments([...comments, formData]);
+      setFormData({ name: "", comment: "" });
     } catch (error) {
       toast.error("An error occurred. Please try again later.");
     }
@@ -108,20 +108,20 @@ export default function ContactUs() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              onKeyDown={(e) => handleKeyDown(e, messageRef)}
+              onKeyDown={(e) => handleKeyDown(e, commentRef)}
               placeholder="Enter your name"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700">Message</label>
+            <label className="block text-gray-700">Comment</label>
             <textarea
-              ref={messageRef}
-              name="message"
-              value={formData.message}
+              ref={commentRef}
+              name="comment"
+              value={formData.comment}
               onChange={handleChange}
-              placeholder="Enter your message"
+              placeholder="Enter your comment"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               rows="2"
               required
@@ -131,12 +131,12 @@ export default function ContactUs() {
             type="submit"
             className="w-full bg-secondary text-white py-2 rounded-lg text-lg font-semibold hover:bg-accent transition duration-300 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transform hover:scale-105"
           >
-            Send Message
+            Send Comment
           </button>
         </form>
       </div>
 
-      <MessageSlideshow messages={messages} />
+      <CommentSlideshow comments={comments} />
     </div>
   );
 }
