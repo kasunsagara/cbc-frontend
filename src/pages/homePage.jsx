@@ -10,6 +10,7 @@ import ShippingPage from './home/shipping';
 import MyOrdersPage from './home/orders';
 import ContactUs from './home/contactUs';
 import AboutUs from './home/aboutUs';
+import UserDetails from './home/userDetails';
 
 export default function HomePage() {
   return (
@@ -23,10 +24,11 @@ export default function HomePage() {
           <Route path="/signup" element={<SignupPage/>} />
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/shipping" element={<ShippingPage/>}/>   
-          <Route path='/orders' element={<MyOrdersPage/>}/>
+          <Route path="/orders" element={<MyOrdersPage/>}/>
           <Route path="/productInfo/:id" element={<ProductOverview/>} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/user" element={<UserDetails />} />
         </Routes>  
       </div>    
     </div>

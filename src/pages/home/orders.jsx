@@ -57,7 +57,15 @@ export default function MyOrdersPage() {
       <div className="w-full flex flex-col items-center relative">
       <h1 className="text-3xl text-secondary font-bold mb-4">My Orders</h1>
       {loading ? (
-        <p>Loading orders...</p>
+        <div className="w-full h-full flex items-center justify-center">
+        <div className="relative">
+          {/* Outer Glow Effect */}
+          <div className="absolute inset-0 rounded-full h-32 w-32 bg-gradient-to-tr from-accent to-secondary opacity-30 blur-lg"></div>
+      
+          {/* Spinner */}
+          <div className="animate-spin rounded-full h-32 w-32 border-[6px] border-gray-300 border-t-accent border-t-8 shadow-lg"></div>
+        </div>
+      </div>      
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (

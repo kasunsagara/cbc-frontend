@@ -1,5 +1,5 @@
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
-import { FaHome, FaChartLine, FaBox, FaShoppingCart, FaUsers, FaComments, FaStar } from "react-icons/fa";
+import { FaHome, FaChartLine, FaBox, FaShoppingBag, FaUsers, FaComments, FaStar } from "react-icons/fa";
 import AdminHome from "./admin/adminHome";
 import AdminProductsPage from "./admin/adminProductsPage";
 import AddProductForm from "./admin/addProductForm";
@@ -76,7 +76,7 @@ export default function AdminHomePage() {
                     className="flex flex-row items-center text-white space-x-3 px-4 py-2 hover:bg-accent rounded-lg w-[80%] transition ease-in-out duration-200" 
                     to="/admin/orders"
                 >
-                    <FaShoppingCart size={20} />
+                    <FaShoppingBag size={20} />
                     <span className="text-lg">Orders</span>
                 </Link>
 
