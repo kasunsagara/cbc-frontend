@@ -120,13 +120,13 @@ export default function ShippingPage() {
         </tbody>
       </table>
       <div className="relative mt-6 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md w-1/3">
-        <h1 className="text-2xl font-bold text-gray-700 mt-4">
+        <h1 className="text-[27px] font-bold text-gray-700 mt-4">
           Total: LKR. {labeledTotal.toFixed(2)}
         </h1>
-        <h1 className="text-2xl font-bold text-gray-700">
+        <h1 className="text-[27px] font-bold text-gray-700">
           Discount: LKR. {(labeledTotal - total).toFixed(2)}
         </h1>
-        <h1 className="text-2xl font-bold text-gray-700">
+        <h1 className="text-[27px] font-bold text-gray-700">
           Grand Total: LKR. {total.toFixed(2)}
         </h1>
       </div>
