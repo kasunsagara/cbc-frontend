@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BsGoogle } from 'react-icons/bs';
+import uploadMediaToSupabase from '../utils/mediaUpload';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -36,14 +37,29 @@ export default function SignupPage() {
     }
   }
 
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0]; // Get the selected file
+    if (!file) return;
+
+    try {
+        const uploadedUrl = await uploadMediaToSupabase(file); // Upload to Supabase
+        setFormData((prev) => ({
+            ...prev,
+            profilePicture: uploadedUrl, // Store the uploaded image URL in form data
+        }));
+    } catch (error) {
+        console.error("Error uploading image:", error);
+    }
+};
+
+
   // Function to handle standard email/password signup
   function signup() {
     axios
       .post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
         ...formData,
         profilePicture:
-          formData.profilePicture ||
-          'https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg',
+          formData.profilePicture 
       })
       .then((res) => {
         if (res.data.error) {
@@ -172,13 +188,9 @@ export default function SignupPage() {
             <input
               id="profilePicture"
               name="profilePicture"
-              type="text"
-              value={formData.profilePicture}
-              onChange={handleChange}
-              placeholder="Enter your profile picture URL"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') signup();
-              }}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange} // Use a new handler for file selection
               ref={profilePictureRef}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
             />

@@ -103,7 +103,7 @@ export default function AddProductForm() {
                         />
                     </div>
                     <div className="flex flex-col">
-                        <label className="block text-gray-700 mb-2">Image URLs</label>
+                        <label className="block text-gray-700 mb-2">Product Images</label>
                         <input
                             type="file"
                             onChange={(e) => { setImageFiles(e.target.files) }}
