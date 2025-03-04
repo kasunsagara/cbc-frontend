@@ -52,28 +52,34 @@ export default function SignupPage() {
     }
 };
 
-
   // Function to handle standard email/password signup
   function signup() {
+    // Check if any required field is empty
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+      toast.error("All fields are required!");
+      return;
+    }
+  
     axios
       .post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
         ...formData,
-        profilePicture:
-          formData.profilePicture 
+        profilePicture: formData.profilePicture
+          ? formData.profilePicture
+          : "https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg", // Default profile picture
       })
       .then((res) => {
         if (res.data.error) {
           toast.error(res.data.message);
           return;
         }
-        toast.success('Account created successfully!');
-        window.location.href = '/login'; // Redirect to login page after signup
+        toast.success("Account created successfully!");
+        window.location.href = "/login"; // Redirect to login page after signup
       })
       .catch((err) => {
-        toast.error('Something went wrong!');
+        toast.error("Something went wrong!");
         console.error(err);
       });
-  }
+  }  
 
   const googleSignup = useGoogleLogin({
     onSuccess: (res) => {

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { FaTrash } from "react-icons/fa";
 
 export default function AdminCustomersPage() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // To hold any error message
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,9 +54,10 @@ export default function AdminCustomersPage() {
 
       // After successful deletion, filter out the deleted user from the state
       setUserData(userData.filter((user) => user.email !== email));
+      toast.success("Customer deleted successfully");
     } catch (error) {
-      console.error("Error deleting user:", error);
-      setError("Failed to delete user.");
+      console.error("Error deleting customer:", error);
+      toast.error("Failed to delete customer.");
     }
   };
 
@@ -73,9 +74,6 @@ export default function AdminCustomersPage() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Admin Customers</h1>
       </div>
-
-      {/* Show error message if any */}
-      {error && <div className="bg-red-100 text-red-700 p-4 mb-4 rounded">{error}</div>}
 
       <div className="bg-white shadow-lg rounded-lg">
         <table className="w-full text-left border-collapse rounded-lg overflow-hidden">
