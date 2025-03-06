@@ -3,6 +3,7 @@ import { loadCart } from "../../utils/cartFunction";
 import CartCard from "../../components/cartCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export default function Cart() {
   const [cart, setCart] = useState([]);
@@ -41,6 +42,7 @@ export default function Cart() {
 
   function handleItemDelete() {
     fetchCartData(); // Refresh cart after deletion
+    toast.success("Item deleted from cart");
   }
 
   return (
