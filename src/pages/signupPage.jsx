@@ -189,7 +189,7 @@ export default function SignupPage() {
           </div>
           <div>
             <label htmlFor="profilePicture" className="block text-sm font-medium text-gray-700 mb-1">
-              Profile Picture (URL)
+              Profile Picture
             </label>
             <input
               id="profilePicture"
