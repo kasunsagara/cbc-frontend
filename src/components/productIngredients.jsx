@@ -24,29 +24,28 @@ export default function ProductIngredients() {
     setIndex((prev) => (prev - 1 + ingredients.length) % ingredients.length);
   };
 
-  // Auto-slide effect with reset on manual interaction
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [index]);
 
   return (
-    <div className="w-full flex flex-col items-center py-16 relative top-[45px]">
-        <div className="absolute inset-0 bg-black/40"></div>
-        
-      {/* Title fixed at the top with even more space */}
-      <h2 className="absolute top-33 text-4xl font-bold text-secondary mb-8 drop-shadow-md z-20">
+    <div className="w-full flex flex-col items-center py-16 relative top-[45px] px-4 sm:px-6">
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Title */}
+      <h2 className="absolute top-33 text-2xl sm:text-4xl font-bold text-secondary mb-8 drop-shadow-md z-20 text-center px-2">
         What’s Inside Our Products?
       </h2>
 
       {/* Cards and Buttons Container */}
-      <div className="relative w-full max-w-3xl flex items-center justify-center mt-48">
+      <div className="relative w-full max-w-3xl flex items-center justify-center mt-44 sm:mt-48">
         {/* Left Button */}
         <button
           onClick={prevSlide}
-          className="absolute -left-2 md:-left-6 text-secondary bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 hover:bg-white shadow-lg rounded-full p-3 transition-transform transform hover:scale-110 z-10"
+          className="absolute -left-1 sm:-left-6 text-secondary bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-transform transform hover:scale-110 z-10"
         >
-          <FaArrowLeft size={24} />
+          <FaArrowLeft size={20} className="sm:size-[24px]" />
         </button>
 
         {/* Ingredient Cards Container */}
@@ -59,20 +58,20 @@ export default function ProductIngredients() {
                   key={currentIndex}
                   initial={{ opacity: 0, scale: 0.8, x: offset * 120 }}
                   animate={{
-                    opacity: offset === 0 ? 1 : 0.5, // reduce opacity for the side cards
-                    scale: offset === 0 ? 1.1 : 0.85, // reduce scale for the side cards
+                    opacity: offset === 0 ? 1 : 0.5,
+                    scale: offset === 0 ? 1.05 : 0.85,
                     x: offset * 150
                   }}
                   exit={{ opacity: 0, scale: 0.8, x: offset * -100 }}
                   transition={{ duration: 0.6 }}
-                  className={`absolute w-96 p-6 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 rounded-xl shadow-xl text-center transition-all border-2 ${
-                    offset === 0
-                      ? "z-20 shadow-2xl"
-                      : "z-10 opacity-60"
+                  className={`absolute w-80 sm:w-96 p-4 sm:p-6 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 rounded-xl shadow-xl text-center transition-all border-2 ${
+                    offset === 0 
+                    ? "z-20 shadow-2xl" 
+                    : "z-10 opacity-60"
                   }`}
                 >
-                  <h3 className="text-2xl font-semibold text-secondary">{ingredients[currentIndex].title}</h3>
-                  <p className="text-gray-800 mt-2">{ingredients[currentIndex].description}</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-secondary">{ingredients[currentIndex].title}</h3>
+                  <p className="text-gray-800 mt-2 text-sm sm:text-base">{ingredients[currentIndex].description}</p>
                 </motion.div>
               );
             })}
@@ -82,12 +81,11 @@ export default function ProductIngredients() {
         {/* Right Button */}
         <button
           onClick={nextSlide}
-          className="absolute -right-2 md:-right-6 text-secondary bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 hover:bg-white shadow-lg rounded-full p-3 transition-transform transform hover:scale-110 z-10"
+          className="absolute -right-1 sm:-right-6 text-secondary bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-transform transform hover:scale-110 z-10"
         >
-          <FaArrowRight size={24} />
+          <FaArrowRight size={20} className="sm:size-[24px]" />
         </button>
       </div>
     </div>
   );
 }
-

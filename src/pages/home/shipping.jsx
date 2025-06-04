@@ -93,7 +93,7 @@ export default function ShippingPage() {
     <div
       className="w-full min-h-screen flex flex-col items-center p-4 relative"
       style={{
-        backgroundImage: 'url("/background3.png")', // Ensure this file is in 'public'
+        backgroundImage: 'url("/background3.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -102,43 +102,50 @@ export default function ShippingPage() {
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-        <table className="relative w-3/5 mx-auto border border-gray-400 border-collapse bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg overflow-hidden">
-          <thead>
-            <tr className="border border-gray-200 text-gray-700 bg-yellow-500 text-lg font-semibold">
-              <th className="border border-gray-200 p-2">Image</th>
-              <th className="border border-gray-200 p-2">Product Name</th>
-              <th className="border border-gray-200 p-2">Product ID</th>
-              <th className="border border-gray-200 p-2">Qty</th>
-              <th className="border border-gray-200 p-2">Price</th>
-              <th className="border border-gray-200 p-2">Total</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div className="relative w-full overflow-x-auto">
+      <table
+        className="relative mx-auto border border-gray-400 border-collapse bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg overflow-hidden
+                            w-full sm:w-3/5"
+      >
+        <thead>
+          <tr className="border border-gray-200 text-gray-700 bg-yellow-500 text-base sm:text-lg font-semibold">
+            <th className="border border-gray-200 p-1 sm:p-2">Image</th>
+            <th className="border border-gray-200 p-1 sm:p-2">Product Name</th>
+            <th className="border border-gray-200 p-1 sm:p-2">Product ID</th>
+            <th className="border border-gray-200 p-1 sm:p-2">Qty</th>
+            <th className="border border-gray-200 p-1 sm:p-2">Price</th>
+            <th className="border border-gray-200 p-1 sm:p-2">Total</th>
+          </tr>
+        </thead>
+        <tbody>
           {cart.map((item) => (
             <ShippingCard key={item.productId} productId={item.productId} qty={item.qty} />
           ))}
         </tbody>
       </table>
-      <div className="relative mt-6 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md w-1/3">
-        <h1 className="text-[27px] font-bold text-gray-700 mt-4">
+      </div>
+
+      <div className="relative mt-6 text-center bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-4 sm:p-6 rounded-lg shadow-md
+                        w-full max-w-md sm:w-1/3">
+        <h1 className="text-xl sm:text-[27px] font-bold text-gray-700 mt-4">
           Total: LKR. {labeledTotal.toFixed(2)}
         </h1>
-        <h1 className="text-[27px] font-bold text-gray-700">
+        <h1 className="text-xl sm:text-[27px] font-bold text-gray-700">
           Discount: LKR. {(labeledTotal - total).toFixed(2)}
         </h1>
-        <h1 className="text-[27px] font-bold text-gray-700">
+        <h1 className="text-xl sm:text-[27px] font-bold text-gray-700">
           Grand Total: LKR. {total.toFixed(2)}
         </h1>
       </div>
 
-      <div className="relative w-1/2 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-6 rounded-lg shadow-md mt-6">
-        <h2 className="text-2xl font-bold text-secondary mb-4">Shipping Details</h2>
+      <div className="relative w-full max-w-lg bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 p-4 sm:p-6 rounded-lg shadow-md mt-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-secondary mb-4">Shipping Details</h2>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Name</label>
+          <label className="block font-medium text-gray-700 mb-1 text-sm sm:text-base">Name</label>
           <input
             type="text"
             id="name"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent text-sm sm:text-base"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
@@ -146,10 +153,10 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Address</label>
+          <label className="block font-medium text-gray-700 mb-1 text-sm sm:text-base">Address</label>
           <textarea
             id="address"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent text-sm sm:text-base"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Enter your address"
@@ -157,11 +164,11 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Phone</label>
+          <label className="block font-medium text-gray-700 mb-1 text-sm sm:text-base">Phone</label>
           <input
             type="text"
             id="phone"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent text-sm sm:text-base"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Enter your phone number"
@@ -169,7 +176,7 @@ export default function ShippingPage() {
           />
         </div>
         <button
-          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 mt-4 shadow-md transition-transform transform hover:scale-105 text-white font-semibold p-2 rounded-lg w-full"
+          className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 mt-4 shadow-md transition-transform transform hover:scale-105 text-white font-semibold p-2 rounded-lg w-full text-sm sm:text-base"
           onClick={createOrder}
         >
           Checkout

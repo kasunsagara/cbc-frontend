@@ -72,7 +72,7 @@ export default function LoginPage() {
 
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center justify-center relative"
+      className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 sm:px-0"
       style={{
         backgroundImage: 'url("/background5.png")', // Ensure this file is in the 'public' folder
         backgroundSize: "cover",
@@ -83,7 +83,7 @@ export default function LoginPage() {
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
       
-      <div className="relative w-[450px] p-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
+      <div className="relative w-full max-w-[450px] p-6 sm:p-8 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-lg">
         <h1 className="text-3xl font-bold text-secondary text-center mb-6">Welcome Back</h1>
         <form className="space-y-4">
           <div>
@@ -120,7 +120,7 @@ export default function LoginPage() {
           <button
             onClick={login}
             type="button"
-            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
+            className="w-full px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3 mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             Login
           </button>
@@ -144,7 +144,7 @@ export default function LoginPage() {
           <button 
             onClick={() => googleLogin()} 
             type="button" 
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transition-transform transform hover:scale-105"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 font-semibold text-white bg-secondary rounded-lg hover:bg-accent bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3 mt-4 shadow-md transition-transform transform hover:scale-105"
           >
             <BsGoogle className="text-lg" />
             Login with Google

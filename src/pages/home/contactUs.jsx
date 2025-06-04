@@ -8,7 +8,6 @@ export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", comment: "" });
   const [comments, setComments] = useState([]);
 
-  // Refs for the input fields
   const nameRef = useRef(null);
   const commentRef = useRef(null);
 
@@ -56,9 +55,9 @@ export default function ContactUs() {
 
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center relative"
+      className="w-full min-h-screen flex flex-col items-center relative px-4 sm:px-6 md:px-10"
       style={{
-        backgroundImage: 'url("/background2.png")', // Ensure this file is in the 'public' folder
+        backgroundImage: 'url("/background2.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -68,8 +67,8 @@ export default function ContactUs() {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Contact Info */}
-      <div className="relative mt-6 text-gray-100 space-y-5 text-lg p-2">
-        <h3 className="text-2xl font-semibold text-secondary mb-4 text-center">Reach Out to Us</h3>
+      <div className="relative mt-6 text-gray-100 space-y-5 text-base sm:text-lg p-2 sm:p-4 w-full max-w-xl">
+        <h3 className="text-xl sm:text-2xl font-semibold text-secondary mb-4 text-center">Reach Out to Us</h3>
         <div className="flex items-center space-x-3">
           <FaPhoneAlt className="text-secondary" />
           <span>0771670585</span>
@@ -97,8 +96,8 @@ export default function ContactUs() {
       </div>
 
       {/* Contact Form */}
-      <h3 className="relative text-2xl font-semibold text-secondary mb-4 p-4">We’d Love to Hear from You</h3>
-      <div className="relative bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-2xl p-8 w-full max-w-2xl">
+      <h3 className="relative text-xl sm:text-2xl font-semibold text-secondary mb-4 p-2 sm:p-4 text-center">We’d Love to Hear from You</h3>
+      <div className="relative bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 shadow-lg rounded-2xl p-4 sm:p-8 w-full max-w-2xl">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700">Name</label>
@@ -110,7 +109,7 @@ export default function ContactUs() {
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, commentRef)}
               placeholder="Enter your name"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent text-sm sm:text-base"
               required
             />
           </div>
@@ -122,14 +121,14 @@ export default function ContactUs() {
               value={formData.comment}
               onChange={handleChange}
               placeholder="Enter your comment"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent text-sm sm:text-base"
               rows="2"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full bg-secondary text-white py-2 rounded-lg text-lg font-semibold hover:bg-accent transition duration-300 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3  mt-4 shadow-md transform hover:scale-105"
+            className="w-full bg-secondary text-white py-2 rounded-lg text-base sm:text-lg font-semibold hover:bg-accent transition duration-300 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 p-3 mt-4 shadow-md transform hover:scale-105"
           >
             Send Comment
           </button>
